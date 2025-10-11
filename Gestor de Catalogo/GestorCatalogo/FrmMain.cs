@@ -22,9 +22,53 @@ namespace GestorCatalogo
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            CargarMain();
+        }
+
+
+        private void CargarMain()
+        {
             NArticulo negocio = new NArticulo();
             listaArticulos = negocio.ListarArticulos();
             dgvMain.DataSource = listaArticulos;
+            OcultarColumnas();
+            CargarImagen(listaArticulos[0].Imagen);
         }
+        private void OcultarColumnas()
+        {
+            dgvMain.Columns["Id"].Visible = false;
+            dgvMain.Columns["Imagen"].Visible = false;
+        }
+        public void CargarImagen(string img)
+        {
+            try
+            {
+                pbMain.Load(img);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+            }
+        }
+
+        private void dgvMain_SelectionChanged(object sender, EventArgs e)
+        {
+            Articulo seleccionado = (Articulo)dgvMain.CurrentRow.DataBoundItem;
+            CargarImagen(seleccionado.Imagen);
+        }
+
+
+        //Evento Botones--
+        private void btnDetalle_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado = new Articulo();
+            seleccionado = (Articulo)dgvMain.CurrentRow.DataBoundItem;
+            FrmDetalle ventanaDetalle = new FrmDetalle(seleccionado);
+            ventanaDetalle.ShowDialog();
+        }
+
+
+        //--Evento Botones
+
     }
 }
