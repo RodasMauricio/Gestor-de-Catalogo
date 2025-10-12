@@ -128,6 +128,7 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(120, 126);
+            this.txtDescripcion.MaxLength = 120;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(121, 20);
             this.txtDescripcion.TabIndex = 9;
@@ -145,6 +146,7 @@
             this.txtImagen.Name = "txtImagen";
             this.txtImagen.Size = new System.Drawing.Size(121, 20);
             this.txtImagen.TabIndex = 11;
+            this.txtImagen.Leave += new System.EventHandler(this.txtImagen_Leave);
             // 
             // cbMarca
             // 
@@ -167,6 +169,7 @@
             this.pbAltaMod.Location = new System.Drawing.Point(311, 87);
             this.pbAltaMod.Name = "pbAltaMod";
             this.pbAltaMod.Size = new System.Drawing.Size(184, 163);
+            this.pbAltaMod.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbAltaMod.TabIndex = 14;
             this.pbAltaMod.TabStop = false;
             // 
@@ -178,6 +181,7 @@
             this.btnAceptar.TabIndex = 15;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
