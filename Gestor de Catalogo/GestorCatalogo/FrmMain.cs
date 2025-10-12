@@ -105,14 +105,21 @@ namespace GestorCatalogo
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             SeleccionArticulo();
-            DialogResult r = MessageBox.Show($"¿Eliminar artículo({articulo.Nombre})?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult r = MessageBox.Show($"¿Eliminar artículo ({articulo.Nombre})?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (r == DialogResult.Yes)
             {
                 NArticulo negocio = new NArticulo();
                 negocio.Eliminar(articulo.Id);
-                MessageBox.Show("Articulo Eliminado");
                 CargarMain();
             }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            SeleccionArticulo();
+            FrmAltaModificar ventana = new FrmAltaModificar(articulo);
+            ventana.ShowDialog();
+            CargarMain();
         }
 
 

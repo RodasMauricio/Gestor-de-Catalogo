@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Windows.Forms;
 
 namespace Negocio
 {
@@ -66,6 +67,7 @@ namespace Negocio
                     datos.Parametros("@imagen", a.Imagen);
                     datos.Parametros("@precio", a.Precio);
                     datos.EjecutarComando();
+                    MessageBox.Show("¡Artículo Agregado!");
                 }
                 catch (Exception)
                 {
@@ -83,6 +85,7 @@ namespace Negocio
                     datos.Consulta("Delete From ARTICULOS Where Id = @id");
                     datos.Parametros("@id", id);
                     datos.EjecutarComando();
+                    MessageBox.Show("¡Artículo Eliminado!");
                 }
                 catch (Exception)
                 {
@@ -91,12 +94,29 @@ namespace Negocio
             }
         }
     
-    
-    
-    
-    
-    
-    
-    
+        public void Modificar(Articulo a)
+        { 
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta("Update ARTICULOS set Codigo = @codigo, Nombre = @nombre, Descripcion = @descripcion, IdMarca = @idMarca, IdCategoria = @idCategoria, ImagenUrl = @imagen, Precio = @precio Where Id = @id");
+                    datos.Parametros("@codigo", a.Codigo.ToUpper());
+                    datos.Parametros("@nombre", a.Nombre);
+                    datos.Parametros("@descripcion", a.Descripcion);
+                    datos.Parametros("@idMarca", a.Marca.Id);
+                    datos.Parametros("@idCategoria", a.Categoria.Id);
+                    datos.Parametros("@imagen", a.Imagen);
+                    datos.Parametros("@precio", a.Precio);
+                    datos.Parametros("@id", a.Id);
+                    datos.EjecutarComando();
+                    MessageBox.Show("¡Artículo Modificado!");
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
     }
 }

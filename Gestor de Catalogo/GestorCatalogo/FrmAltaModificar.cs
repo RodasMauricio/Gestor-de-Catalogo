@@ -24,6 +24,7 @@ namespace GestorCatalogo
         {
             InitializeComponent();
             Text = "MODIFICAR";
+            articulo = a;
         }
 
         private void FrmAltaModificar_Load(object sender, EventArgs e)
@@ -48,17 +49,19 @@ namespace GestorCatalogo
 
                 if (articulo != null)
                 {
-
+                    txtCodigo.Text = articulo.Codigo;
+                    txtNombre.Text = articulo.Nombre;
+                    txtDescripcion.Text = articulo.Descripcion;
+                    cbMarca.SelectedValue = articulo.Marca.Id;
+                    cbCategoria.SelectedValue = articulo.Categoria.Id;
+                    txtImagen.Text = articulo.Imagen;
+                    Ayuda.CargarPB(txtImagen.Text, pbAltaMod);
+                    txtPrecio.Text = articulo.Precio.ToString();
                 }
-
-
-
-
-
             }
             catch (Exception exc)
             {
-                throw exc;
+                MessageBox.Show(exc.ToString());
             }
         }
 
@@ -89,10 +92,6 @@ namespace GestorCatalogo
 
 
 
-        private void txtImagen_Leave(object sender, EventArgs e)
-        {
-            Ayuda.CargarPB(txtImagen.Text, pbAltaMod);
-        }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
@@ -106,14 +105,9 @@ namespace GestorCatalogo
                     if (r == DialogResult.Yes)
                     {
                         if (articulo.Id != 0)
-                        {
-                            MessageBox.Show("¡Artículo Modificado!");
-                        }
+                            negocio.Modificar(articulo);
                         else
-                        {
                             negocio.Agregar(articulo);
-                            MessageBox.Show("¡Artículo Agregado!");
-                        }
                         Close();
                     }
                 }
@@ -130,6 +124,10 @@ namespace GestorCatalogo
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+        private void txtImagen_Leave(object sender, EventArgs e)
+        {
+            Ayuda.CargarPB(txtImagen.Text, pbAltaMod);
         }
     }
 }
