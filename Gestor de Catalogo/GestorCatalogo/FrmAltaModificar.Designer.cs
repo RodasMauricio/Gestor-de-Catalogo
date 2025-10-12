@@ -137,8 +137,10 @@
             // 
             this.txtPrecio.Location = new System.Drawing.Point(120, 299);
             this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.ShortcutsEnabled = false;
             this.txtPrecio.Size = new System.Drawing.Size(121, 20);
             this.txtPrecio.TabIndex = 10;
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
             // txtImagen
             // 

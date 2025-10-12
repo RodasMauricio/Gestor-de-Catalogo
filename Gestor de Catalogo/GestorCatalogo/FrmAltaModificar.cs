@@ -31,7 +31,6 @@ namespace GestorCatalogo
         {
             CargarDatos();
         }
-
         private void CargarDatos()
         {
             NMarca marca = new NMarca();
@@ -64,7 +63,6 @@ namespace GestorCatalogo
                 MessageBox.Show(exc.ToString());
             }
         }
-
         private void InsertarDatos()
         {
             try
@@ -88,11 +86,7 @@ namespace GestorCatalogo
             }
         }
         
-
-
-
-
-
+        //Evento Botones --
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             if (txtCodigo.Text != "" && txtNombre.Text != "" && cbMarca.SelectedItem != null && cbCategoria.SelectedItem != null)
@@ -128,6 +122,18 @@ namespace GestorCatalogo
         private void txtImagen_Leave(object sender, EventArgs e)
         {
             Ayuda.CargarPB(txtImagen.Text, pbAltaMod);
+        }
+        //-- Evento Botones 
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //No permite pegar texto copiado (Ya configurado desde panel propiedades)
+            //txtPrecio.ShortcutsEnabled = false;
+            //Permite ingresar solo números
+            if (!(Char.IsDigit(e.KeyChar)) && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

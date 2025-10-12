@@ -35,6 +35,12 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
+            this.lblTituloFiltrar = new System.Windows.Forms.Label();
+            this.lblFiltrarPor = new System.Windows.Forms.Label();
+            this.cbFiltrarPor = new System.Windows.Forms.ComboBox();
+            this.cbCriterio = new System.Windows.Forms.ComboBox();
+            this.txtFiltro = new System.Windows.Forms.TextBox();
+            this.btnFiltrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMain)).BeginInit();
             this.SuspendLayout();
@@ -105,11 +111,67 @@
             this.txtBusqueda.TabIndex = 6;
             this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
             // 
+            // lblTituloFiltrar
+            // 
+            this.lblTituloFiltrar.AutoSize = true;
+            this.lblTituloFiltrar.Location = new System.Drawing.Point(9, 171);
+            this.lblTituloFiltrar.Name = "lblTituloFiltrar";
+            this.lblTituloFiltrar.Size = new System.Drawing.Size(32, 13);
+            this.lblTituloFiltrar.TabIndex = 7;
+            this.lblTituloFiltrar.Text = "Filtrar";
+            // 
+            // lblFiltrarPor
+            // 
+            this.lblFiltrarPor.AutoSize = true;
+            this.lblFiltrarPor.Location = new System.Drawing.Point(7, 196);
+            this.lblFiltrarPor.Name = "lblFiltrarPor";
+            this.lblFiltrarPor.Size = new System.Drawing.Size(56, 13);
+            this.lblFiltrarPor.TabIndex = 8;
+            this.lblFiltrarPor.Text = "Filtrar por :";
+            // 
+            // cbFiltrarPor
+            // 
+            this.cbFiltrarPor.FormattingEnabled = true;
+            this.cbFiltrarPor.Location = new System.Drawing.Point(10, 213);
+            this.cbFiltrarPor.Name = "cbFiltrarPor";
+            this.cbFiltrarPor.Size = new System.Drawing.Size(90, 21);
+            this.cbFiltrarPor.TabIndex = 9;
+            // 
+            // cbCriterio
+            // 
+            this.cbCriterio.FormattingEnabled = true;
+            this.cbCriterio.Location = new System.Drawing.Point(10, 237);
+            this.cbCriterio.Name = "cbCriterio";
+            this.cbCriterio.Size = new System.Drawing.Size(90, 21);
+            this.cbCriterio.TabIndex = 10;
+            // 
+            // txtFiltro
+            // 
+            this.txtFiltro.Location = new System.Drawing.Point(10, 265);
+            this.txtFiltro.Name = "txtFiltro";
+            this.txtFiltro.Size = new System.Drawing.Size(90, 20);
+            this.txtFiltro.TabIndex = 11;
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Location = new System.Drawing.Point(12, 304);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(75, 23);
+            this.btnFiltrar.TabIndex = 12;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(851, 331);
+            this.ClientSize = new System.Drawing.Size(851, 369);
+            this.Controls.Add(this.btnFiltrar);
+            this.Controls.Add(this.txtFiltro);
+            this.Controls.Add(this.cbCriterio);
+            this.Controls.Add(this.cbFiltrarPor);
+            this.Controls.Add(this.lblFiltrarPor);
+            this.Controls.Add(this.lblTituloFiltrar);
             this.Controls.Add(this.txtBusqueda);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnEliminar);
@@ -136,5 +198,11 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.TextBox txtBusqueda;
+        private System.Windows.Forms.Label lblTituloFiltrar;
+        private System.Windows.Forms.Label lblFiltrarPor;
+        private System.Windows.Forms.ComboBox cbFiltrarPor;
+        private System.Windows.Forms.ComboBox cbCriterio;
+        private System.Windows.Forms.TextBox txtFiltro;
+        private System.Windows.Forms.Button btnFiltrar;
     }
 }

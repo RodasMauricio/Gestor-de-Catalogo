@@ -34,13 +34,22 @@ namespace GestorCatalogo
             dgvMain.DataSource = listaArticulos;
             OcultarColumnas();
             Ayuda.CargarPB(listaArticulos[0].Imagen, pbMain);
+            if (cbFiltrarPor.Items.Count == 0)
+                CargarFiltrarPor();
         }
         private void OcultarColumnas()
         {
             dgvMain.Columns["Id"].Visible = false;
             dgvMain.Columns["Imagen"].Visible = false;
         }
-        
+        private void CargarFiltrarPor()
+        {
+            cbFiltrarPor.Items.Add("Nombre");
+            cbFiltrarPor.Items.Add("Categoría");
+            cbFiltrarPor.Items.Add("Marca");
+            cbFiltrarPor.Items.Add("Descripción");
+            cbFiltrarPor.Items.Add("Precio");
+        }
         private Articulo SeleccionArticulo()
         {
             if (dgvMain.CurrentRow != null)
