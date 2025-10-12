@@ -59,8 +59,36 @@ namespace GestorCatalogo
 
             return articulo;
         }
-        
-        
+        private List<Articulo> FiltroMarcaCategoria(string filtrarPor, string criterio)
+        {
+            try
+            {
+                List<Articulo> listadoFiltrado = new List<Articulo>();
+                switch (filtrarPor)
+                {
+                    case "Marca":
+                        foreach (Articulo m in listaArticulos)
+                        {
+                            if (m.Marca.Descripcion == criterio)
+                                listadoFiltrado.Add(m);
+                        }
+                        break;
+                    case "Categoría":
+                        foreach (Articulo c in listaArticulos)
+                        {
+                            if (c.Categoria.Descripcion == criterio)
+                                listadoFiltrado.Add(c);
+                        }
+                        break;
+                }
+                return listadoFiltrado;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         //Evento Botones--
         private void btnDetalle_Click(object sender, EventArgs e)
         {
@@ -97,6 +125,44 @@ namespace GestorCatalogo
             CargarMain();
         }
 
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            cbFiltrarPor.Items.Clear();
+            cbCriterio.Items.Clear();
+            txtFiltro.Clear();
+            txtFiltro.Enabled = false;
+            cbCriterio.Enabled = false;
+            txtBusqueda.Clear();
+            CargarMain();
+        }
+        
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string filtrarPor = cbFiltrarPor.SelectedItem.ToString();
+                string criterio = null;
+                string filtro = txtFiltro.Text;
+                if (filtrarPor != "Descripción")
+                    criterio = cbCriterio.SelectedItem.ToString();
+
+                if (filtrarPor == "Marca" || filtrarPor == "Categoría")
+                {
+                    dgvMain.DataSource = null;
+                    dgvMain.DataSource = FiltroMarcaCategoria(filtrarPor, criterio);
+                }
+                else
+                {
+
+                }
+                OcultarColumnas();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        
         //--Evento Botones
 
 
@@ -216,15 +282,5 @@ namespace GestorCatalogo
             }
         }
 
-        private void btnActualizar_Click(object sender, EventArgs e)
-        {
-            cbFiltrarPor.Items.Clear();
-            cbCriterio.Items.Clear();
-            txtFiltro.Clear();
-            txtFiltro.Enabled = false;
-            cbCriterio.Enabled = false;
-            txtBusqueda.Clear();
-            CargarMain();
-        }
     }
 }
