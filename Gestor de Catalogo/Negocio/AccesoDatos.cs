@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Windows.Forms;
 
 namespace Negocio
 {
-    public class AccesoDatos
+    public class AccesoDatos : IDisposable
     {
         private SqlConnection conexion;
         private SqlCommand comando;
@@ -51,11 +52,20 @@ namespace Negocio
             comando.ExecuteNonQuery();
         }
 
-        public void CerrarConexion()
+        private void CerrarConexion()
         {
             if (lector != null)
                 lector.Close();
-            conexion.Close();
+            if (conexion != null && conexion.State == System.Data.ConnectionState.Open)
+                conexion.Close();
+        }
+        public void Dispose()
+        {
+            bool disposing = true;
+            MessageBox.Show("Hola desde dispose");
+            CerrarConexion();
+            comando?.Dispose();
+            conexion?.Dispose();
         }
 
     }

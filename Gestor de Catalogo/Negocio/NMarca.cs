@@ -31,10 +31,6 @@ namespace Negocio
             {
                 throw;
             }
-            finally
-            {
-                datos.CerrarConexion();
-            }
         }
     }
 }
