@@ -1,6 +1,7 @@
 ﻿using Dominio;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 
 namespace Negocio
 {
@@ -72,5 +73,30 @@ namespace Negocio
                 }
             }
         }
+    
+        public void Eliminar(int id)
+        {
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta("Delete From ARTICULOS Where Id = @id");
+                    datos.Parametros("@id", id);
+                    datos.EjecutarComando();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+    
+    
+    
+    
+    
+    
+    
+    
     }
 }

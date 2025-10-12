@@ -61,8 +61,6 @@ namespace Negocio
         }
         public void Dispose()
         {
-            bool disposing = true;
-            MessageBox.Show("Hola desde dispose");
             CerrarConexion();
             comando?.Dispose();
             conexion?.Dispose();

@@ -15,6 +15,7 @@ namespace GestorCatalogo
     public partial class FrmMain : Form
     {
         private List<Articulo> listaArticulos;
+        private Articulo articulo;
         public FrmMain()
         {
             InitializeComponent();
@@ -40,7 +41,15 @@ namespace GestorCatalogo
             dgvMain.Columns["Imagen"].Visible = false;
         }
         
-        
+        private Articulo SeleccionArticulo()
+        {
+            if (dgvMain.CurrentRow != null)
+                articulo = (Articulo)dgvMain.CurrentRow.DataBoundItem;
+            else
+                articulo = (Articulo)dgvMain.Rows[0].DataBoundItem;
+
+            return articulo;
+        }
         
         
         private void txtBusqueda_TextChanged(object sender, EventArgs e)
@@ -54,7 +63,6 @@ namespace GestorCatalogo
             dgvMain.DataSource = filtroRapido;
             OcultarColumnas();
         }
-
 
         private void dgvMain_SelectionChanged(object sender, EventArgs e)
         {
@@ -92,6 +100,19 @@ namespace GestorCatalogo
             FrmAltaModificar ventana = new FrmAltaModificar();
             ventana.ShowDialog();
             CargarMain();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            SeleccionArticulo();
+            DialogResult r = MessageBox.Show($"¿Eliminar artículo({articulo.Nombre})?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (r == DialogResult.Yes)
+            {
+                NArticulo negocio = new NArticulo();
+                negocio.Eliminar(articulo.Id);
+                MessageBox.Show("Articulo Eliminado");
+                CargarMain();
+            }
         }
 
 
