@@ -72,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmAltaModificar.resx">
+      <DependentUpon>FrmAltaModificar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDetalle.resx">
       <DependentUpon>FrmDetalle.cs</DependentUpon>
     </EmbeddedResource>

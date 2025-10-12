@@ -32,29 +32,49 @@ namespace GestorCatalogo
             listaArticulos = negocio.ListarArticulos();
             dgvMain.DataSource = listaArticulos;
             OcultarColumnas();
-            CargarImagen(listaArticulos[0].Imagen);
+            Ayuda.CargarPB(listaArticulos[0].Imagen, pbMain);
         }
         private void OcultarColumnas()
         {
             dgvMain.Columns["Id"].Visible = false;
             dgvMain.Columns["Imagen"].Visible = false;
         }
-        public void CargarImagen(string img)
+        
+        
+        
+        
+        private void txtBusqueda_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                pbMain.Load(img);
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.ToString());
-            }
+            List<Articulo> filtroRapido;
+            string filtro = txtBusqueda.Text.ToUpper();
+
+            filtroRapido = listaArticulos.FindAll(x => x.Codigo.ToUpper().Contains(filtro) || x.Nombre.ToUpper().Contains(filtro) || x.Marca.Descripcion.ToUpper().Contains(filtro) || x.Categoria.Descripcion.ToUpper().Contains(filtro));
+
+            dgvMain.DataSource = null;
+            dgvMain.DataSource = filtroRapido;
+            OcultarColumnas();
         }
+
 
         private void dgvMain_SelectionChanged(object sender, EventArgs e)
         {
-            Articulo seleccionado = (Articulo)dgvMain.CurrentRow.DataBoundItem;
-            CargarImagen(seleccionado.Imagen);
+            try
+            {
+                if (dgvMain.CurrentRow != null)
+                {
+                    Articulo seleccionado = (Articulo)dgvMain.CurrentRow.DataBoundItem;
+                    Ayuda.CargarPB(seleccionado.Imagen, pbMain);
+                }
+                else
+                {
+                    Ayuda.CargarPB("", pbMain);
+                    btnDetalle.Enabled = false;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
 
@@ -66,6 +86,14 @@ namespace GestorCatalogo
             FrmDetalle ventanaDetalle = new FrmDetalle(seleccionado);
             ventanaDetalle.ShowDialog();
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            FrmAltaModificar ventana = new FrmAltaModificar();
+            ventana.ShowDialog();
+            CargarMain();
+        }
+
 
 
         //--Evento Botones

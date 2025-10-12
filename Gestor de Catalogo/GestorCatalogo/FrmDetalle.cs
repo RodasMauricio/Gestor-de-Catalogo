@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
+using Negocio;
 
 namespace GestorCatalogo
 {
@@ -29,19 +30,7 @@ namespace GestorCatalogo
             lblDPrecio.Text = articulo.Precio.ToString();
             lblDDescripcion.Text = articulo.Descripcion;
             lblDImagen.Text = articulo.Imagen;
-            CargarImagen(lblDImagen.Text);
-        }
-
-        private void CargarImagen(string img)
-        {
-            try
-            {
-                pbDetalle.Load(img);
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.ToString());
-            }
+            Ayuda.CargarPB(lblDImagen.Text, pbDetalle);
         }
 
     }
