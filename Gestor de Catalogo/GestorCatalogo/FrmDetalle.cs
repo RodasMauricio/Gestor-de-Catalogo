@@ -28,7 +28,7 @@ namespace GestorCatalogo
             lblDNombre.Text = articulo.Nombre;
             lblDCategoria.Text = articulo.Categoria.Descripcion;
             lblDMarca.Text = articulo.Marca.Descripcion;
-            lblDPrecio.Text = articulo.Precio.ToString();
+            lblDPrecio.Text = articulo.Precio.ToString("C0");
             lblDDescripcion.Text = articulo.Descripcion;
             lblDImagen.Text = articulo.Imagen;
             Ayuda.CargarPB(lblDImagen.Text, pbDetalle);

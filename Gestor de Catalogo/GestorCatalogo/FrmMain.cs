@@ -205,6 +205,16 @@ namespace GestorCatalogo
             }
         }
         
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            cbFiltrarPor.SelectedIndex = -1;
+            cbCriterio.Items.Clear();
+            cbCriterio.Enabled = false;
+            txtFiltro.Clear();
+            txtFiltro.Enabled = false;
+            btnFiltrar.Enabled = false;
+        }
+        
         //--Evento Botones
 
 
@@ -332,15 +342,22 @@ namespace GestorCatalogo
             }
         }
 
-        private void btnLimpiar_Click(object sender, EventArgs e)
+
+        private void lblXBusqueda_Click(object sender, EventArgs e)
         {
-            cbFiltrarPor.SelectedIndex = -1;
-            cbCriterio.Items.Clear();
-            cbCriterio.Enabled = false;
-            txtFiltro.Clear();
-            txtFiltro.Enabled = false;
-            btnFiltrar.Enabled = false;
+            txtBusqueda.Clear();
         }
 
+        private void dgvMain_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvMain.Columns["Precio"].Visible == true)
+            {
+                if (e.Value != null && e.Value is decimal)
+                {
+                    // Formatear el valor de la celda como moneda
+                    e.Value = string.Format("{0:C0}", e.Value);
+                }
+            }
+        }
     }
 }
