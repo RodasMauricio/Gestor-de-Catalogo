@@ -45,9 +45,9 @@ namespace GestorCatalogo
         private void CargarFiltrarPor()
         {
             cbFiltrarPor.Items.Add("Nombre");
-            cbFiltrarPor.Items.Add("Categoría");
-            cbFiltrarPor.Items.Add("Marca");
             cbFiltrarPor.Items.Add("Descripción");
+            cbFiltrarPor.Items.Add("Marca");
+            cbFiltrarPor.Items.Add("Categoría");
             cbFiltrarPor.Items.Add("Precio");
         }
         private Articulo SeleccionArticulo()
@@ -142,7 +142,7 @@ namespace GestorCatalogo
             {
                 string filtrarPor = cbFiltrarPor.SelectedItem.ToString();
                 string criterio = null;
-                string filtro = txtFiltro.Text;
+                string filtro = null; ;
                 if (filtrarPor != "Descripción")
                     criterio = cbCriterio.SelectedItem.ToString();
 
@@ -153,7 +153,10 @@ namespace GestorCatalogo
                 }
                 else
                 {
-
+                    NArticulo negocio = new NArticulo();
+                    filtro = txtFiltro.Text;
+                    dgvMain.DataSource = null;
+                    dgvMain.DataSource = negocio.FiltroAvanzado(filtrarPor, criterio, filtro);
                 }
                 OcultarColumnas();
             }
