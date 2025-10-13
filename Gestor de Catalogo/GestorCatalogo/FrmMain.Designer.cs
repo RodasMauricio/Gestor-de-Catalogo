@@ -66,7 +66,7 @@
             // 
             // btnDetalle
             // 
-            this.btnDetalle.Location = new System.Drawing.Point(693, 236);
+            this.btnDetalle.Location = new System.Drawing.Point(709, 373);
             this.btnDetalle.Name = "btnDetalle";
             this.btnDetalle.Size = new System.Drawing.Size(75, 23);
             this.btnDetalle.TabIndex = 2;
@@ -174,7 +174,7 @@
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(539, 325);
+            this.btnActualizar.Location = new System.Drawing.Point(325, 355);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 13;
@@ -186,7 +186,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(851, 369);
+            this.ClientSize = new System.Drawing.Size(851, 419);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.txtFiltro);

@@ -90,39 +90,78 @@ namespace GestorCatalogo
         }
 
         //Evento Botones--
-        private void btnDetalle_Click(object sender, EventArgs e)
-        {
-            Articulo seleccionado = new Articulo();
-            seleccionado = (Articulo)dgvMain.CurrentRow.DataBoundItem;
-            FrmDetalle ventanaDetalle = new FrmDetalle(seleccionado);
-            ventanaDetalle.ShowDialog();
-        }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            FrmAltaModificar ventana = new FrmAltaModificar();
-            ventana.ShowDialog();
-            CargarMain();
+            try
+            {
+                FrmAltaModificar ventana = new FrmAltaModificar();
+                ventana.ShowDialog();
+                CargarMain();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            SeleccionArticulo();
-            DialogResult r = MessageBox.Show($"¿Eliminar artículo ({articulo.Nombre})?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (r == DialogResult.Yes)
+            if (dgvMain.Rows.Count > 0)
             {
-                NArticulo negocio = new NArticulo();
-                negocio.Eliminar(articulo.Id);
-                CargarMain();
+                try
+                {
+                    SeleccionArticulo();
+                    DialogResult r = MessageBox.Show($"¿Eliminar artículo ({articulo.Nombre})?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (r == DialogResult.Yes)
+                    {
+                        NArticulo negocio = new NArticulo();
+                        negocio.Eliminar(articulo.Id);
+                        CargarMain();
+                    }
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
             }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            SeleccionArticulo();
-            FrmAltaModificar ventana = new FrmAltaModificar(articulo);
-            ventana.ShowDialog();
-            CargarMain();
+            if (dgvMain.Rows.Count > 0)
+            {
+                try
+                {
+                    SeleccionArticulo();
+                    FrmAltaModificar ventana = new FrmAltaModificar(articulo);
+                    ventana.ShowDialog();
+                    CargarMain();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+        
+        private void btnDetalle_Click(object sender, EventArgs e)
+        {
+            if (dgvMain.Rows.Count > 0)
+            {
+                try
+                {
+                    Articulo seleccionado = new Articulo();
+                    seleccionado = (Articulo)dgvMain.CurrentRow.DataBoundItem;
+                    FrmDetalle ventanaDetalle = new FrmDetalle(seleccionado);
+                    ventanaDetalle.ShowDialog();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -145,7 +184,6 @@ namespace GestorCatalogo
                 string filtro = null; ;
                 if (filtrarPor != "Descripción")
                     criterio = cbCriterio.SelectedItem.ToString();
-
                 if (filtrarPor == "Marca" || filtrarPor == "Categoría")
                 {
                     dgvMain.DataSource = null;
