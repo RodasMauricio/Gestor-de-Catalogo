@@ -105,9 +105,9 @@ namespace GestorCatalogo
                         Close();
                     }
                 }
-                catch (Exception exc)
+                catch (Exception)
                 {
-                    MessageBox.Show(exc.ToString());
+                    throw;
                 }
             }
             else
@@ -119,12 +119,12 @@ namespace GestorCatalogo
         {
             Close();
         }
+        //-- Evento Botones 
+
         private void txtImagen_Leave(object sender, EventArgs e)
         {
             Ayuda.CargarPB(txtImagen.Text, pbAltaMod);
         }
-        //-- Evento Botones 
-
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
             //No permite pegar texto copiado (Ya configurado desde panel propiedades)

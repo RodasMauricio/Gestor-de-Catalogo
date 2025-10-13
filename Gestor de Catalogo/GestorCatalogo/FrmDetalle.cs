@@ -19,6 +19,7 @@ namespace GestorCatalogo
         {
             InitializeComponent();
             articulo = a;
+            Text = "Información de: " + articulo.Nombre;
         }
 
         private void FrmDetalle_Load(object sender, EventArgs e)

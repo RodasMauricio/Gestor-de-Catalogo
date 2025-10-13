@@ -41,15 +41,29 @@ namespace Negocio
         public void EjecutarConsulta()
         {
             comando.Connection = conexion;
-            conexion.Open();
-            lector = comando.ExecuteReader();
+            try
+            {
+                conexion.Open();
+                lector = comando.ExecuteReader();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("¡Error al querer establecer conexión con la Base de Datos!","",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
 
         public void EjecutarComando()
         {
             comando.Connection = conexion;
-            conexion.Open();
-            comando.ExecuteNonQuery();
+            try
+            {
+                conexion.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("¡Error al querer establecer conexión con la Base de Datos!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void CerrarConexion()
