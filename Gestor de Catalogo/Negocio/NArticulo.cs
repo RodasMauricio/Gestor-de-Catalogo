@@ -50,7 +50,6 @@ namespace Negocio
                 {
                     throw;
                 }
-
             }
         }
         
@@ -139,7 +138,7 @@ namespace Negocio
                 }
                 catch (Exception)
                 {
-                    throw;
+                    MessageBox.Show("¡Error al Agregar el Artículo!");
                 }
             }
         }
@@ -156,7 +155,7 @@ namespace Negocio
                 }
                 catch (Exception)
                 {
-                    throw;
+                    MessageBox.Show("¡Error al Eliminar el Artículo!");
                 }
             }
         }
@@ -180,10 +179,9 @@ namespace Negocio
                 }
                 catch (Exception)
                 {
-                    throw;
+                    MessageBox.Show("¡Error al Modificar el Artículo!");
                 }
             }
         }
-    
     }
 }
