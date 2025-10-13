@@ -152,9 +152,8 @@ namespace GestorCatalogo
             {
                 try
                 {
-                    Articulo seleccionado = new Articulo();
-                    seleccionado = (Articulo)dgvMain.CurrentRow.DataBoundItem;
-                    FrmDetalle ventanaDetalle = new FrmDetalle(seleccionado);
+                    SeleccionArticulo();
+                    FrmDetalle ventanaDetalle = new FrmDetalle(articulo);
                     ventanaDetalle.ShowDialog();
                 }
                 catch (Exception)
@@ -173,6 +172,8 @@ namespace GestorCatalogo
             cbCriterio.Enabled = false;
             txtBusqueda.Clear();
             CargarMain();
+            btnLimpiar.Enabled = false;
+            btnFiltrar.Enabled = false;
         }
         
         private void btnFiltrar_Click(object sender, EventArgs e)
@@ -227,6 +228,7 @@ namespace GestorCatalogo
                 {
                     Articulo seleccionado = (Articulo)dgvMain.CurrentRow.DataBoundItem;
                     Ayuda.CargarPB(seleccionado.Imagen, pbMain);
+                    btnDetalle.Enabled = true;
                 }
                 else
                 {
@@ -243,50 +245,57 @@ namespace GestorCatalogo
 
         private void cbFiltrarPor_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string opcion = cbFiltrarPor.SelectedItem.ToString();
             if (cbFiltrarPor.SelectedIndex > -1)
-                cbCriterio.Enabled = true;
-            if (cbCriterio.Items.Count > 0)
-                cbCriterio.Items.Clear();
-
-            txtFiltro.Enabled = false;
-            btnFiltrar.Enabled = false;
-
-            switch (opcion)
             {
-                case "Nombre":
-                    cbCriterio.Items.Add("Comienza con...");
-                    cbCriterio.Items.Add("Termina con...");
-                    cbCriterio.Items.Add("Contiene...");
-                    break;
-                case "Categoría":
-                    NCategoria categoria = new NCategoria();
-                    listaCategoria = categoria.ListarCategorias();
-                    foreach (Categoria c in listaCategoria)
-                    {
-                        cbCriterio.Items.Add(c);
-                    }
-                    break;
-                case "Marca":
-                    NMarca marca = new NMarca();
-                    listaMarca = marca.ListarMarcas();
-                    foreach (Marca m in listaMarca)
-                    {
-                        cbCriterio.Items.Add(m);
-                    }
-                    break;
-                case "Descripción":
-                    cbCriterio.Enabled = false;
-                    txtFiltro.Enabled = true;
-                    break;
-                case "Precio":
-                    cbCriterio.Items.Add("Mínimo");
-                    cbCriterio.Items.Add("Máximo");
-                    break;
-            }
-            if (txtFiltro.Text != "")
-                txtFiltro.Clear();
+                btnLimpiar.Enabled = true;
+                string opcion = cbFiltrarPor.SelectedItem.ToString();
+                if (cbFiltrarPor.SelectedIndex > -1)
+                    cbCriterio.Enabled = true;
+                if (cbCriterio.Items.Count > 0)
+                    cbCriterio.Items.Clear();
 
+                txtFiltro.Enabled = false;
+                btnFiltrar.Enabled = false;
+
+                switch (opcion)
+                {
+                    case "Nombre":
+                        cbCriterio.Items.Add("Comienza con...");
+                        cbCriterio.Items.Add("Termina con...");
+                        cbCriterio.Items.Add("Contiene...");
+                        break;
+                    case "Categoría":
+                        NCategoria categoria = new NCategoria();
+                        listaCategoria = categoria.ListarCategorias();
+                        foreach (Categoria c in listaCategoria)
+                        {
+                            cbCriterio.Items.Add(c);
+                        }
+                        break;
+                    case "Marca":
+                        NMarca marca = new NMarca();
+                        listaMarca = marca.ListarMarcas();
+                        foreach (Marca m in listaMarca)
+                        {
+                            cbCriterio.Items.Add(m);
+                        }
+                        break;
+                    case "Descripción":
+                        cbCriterio.Enabled = false;
+                        txtFiltro.Enabled = true;
+                        break;
+                    case "Precio":
+                        cbCriterio.Items.Add("Mínimo");
+                        cbCriterio.Items.Add("Máximo");
+                        break;
+                }
+                if (txtFiltro.Text != "")
+                    txtFiltro.Clear();
+            }
+            else
+            {
+                btnLimpiar.Enabled = false;
+            }
         }
 
         private void cbCriterio_SelectedIndexChanged(object sender, EventArgs e)
@@ -323,5 +332,14 @@ namespace GestorCatalogo
             }
         }
 
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            cbFiltrarPor.SelectedIndex = -1;
+            cbCriterio.Items.Clear();
+            cbCriterio.Enabled = false;
+            txtFiltro.Clear();
+            txtFiltro.Enabled = false;
+            btnFiltrar.Enabled = false;
+        }
     }
 }
