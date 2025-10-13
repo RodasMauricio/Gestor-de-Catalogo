@@ -341,5 +341,6 @@ namespace GestorCatalogo
             txtFiltro.Enabled = false;
             btnFiltrar.Enabled = false;
         }
+
     }
 }

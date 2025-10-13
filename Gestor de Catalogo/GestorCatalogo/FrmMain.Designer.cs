@@ -45,12 +45,12 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.lblTituloArticulo = new System.Windows.Forms.Label();
             this.panelDetalle = new System.Windows.Forms.Panel();
-            this.lblTMarca = new System.Windows.Forms.Label();
-            this.lblMarca = new System.Windows.Forms.Label();
-            this.lblTArticulo = new System.Windows.Forms.Label();
-            this.lblArticulo = new System.Windows.Forms.Label();
-            this.lblTPrecio = new System.Windows.Forms.Label();
             this.lblPrecio = new System.Windows.Forms.Label();
+            this.lblTPrecio = new System.Windows.Forms.Label();
+            this.lblArticulo = new System.Windows.Forms.Label();
+            this.lblTArticulo = new System.Windows.Forms.Label();
+            this.lblMarca = new System.Windows.Forms.Label();
+            this.lblTMarca = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMain)).BeginInit();
             this.panelDetalle.SuspendLayout();
@@ -225,41 +225,14 @@
             this.panelDetalle.Size = new System.Drawing.Size(169, 257);
             this.panelDetalle.TabIndex = 16;
             // 
-            // lblTMarca
+            // lblPrecio
             // 
-            this.lblTMarca.Location = new System.Drawing.Point(0, 0);
-            this.lblTMarca.Name = "lblTMarca";
-            this.lblTMarca.Size = new System.Drawing.Size(169, 23);
-            this.lblTMarca.TabIndex = 0;
-            this.lblTMarca.Text = "Marca";
-            this.lblTMarca.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblMarca
-            // 
-            this.lblMarca.Location = new System.Drawing.Point(1, 44);
-            this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(169, 23);
-            this.lblMarca.TabIndex = 1;
-            this.lblMarca.Text = "Nombre Marca";
-            this.lblMarca.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblTArticulo
-            // 
-            this.lblTArticulo.Location = new System.Drawing.Point(0, 86);
-            this.lblTArticulo.Name = "lblTArticulo";
-            this.lblTArticulo.Size = new System.Drawing.Size(169, 23);
-            this.lblTArticulo.TabIndex = 2;
-            this.lblTArticulo.Text = "Artículo";
-            this.lblTArticulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblArticulo
-            // 
-            this.lblArticulo.Location = new System.Drawing.Point(1, 127);
-            this.lblArticulo.Name = "lblArticulo";
-            this.lblArticulo.Size = new System.Drawing.Size(169, 23);
-            this.lblArticulo.TabIndex = 3;
-            this.lblArticulo.Text = "Nombre Artículo";
-            this.lblArticulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPrecio.Location = new System.Drawing.Point(1, 214);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(169, 23);
+            this.lblPrecio.TabIndex = 5;
+            this.lblPrecio.Text = "Precio Artículo";
+            this.lblPrecio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTPrecio
             // 
@@ -270,14 +243,41 @@
             this.lblTPrecio.Text = "Precio";
             this.lblTPrecio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblPrecio
+            // lblArticulo
             // 
-            this.lblPrecio.Location = new System.Drawing.Point(1, 214);
-            this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(169, 23);
-            this.lblPrecio.TabIndex = 5;
-            this.lblPrecio.Text = "Precio Artículo";
-            this.lblPrecio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblArticulo.Location = new System.Drawing.Point(1, 127);
+            this.lblArticulo.Name = "lblArticulo";
+            this.lblArticulo.Size = new System.Drawing.Size(169, 23);
+            this.lblArticulo.TabIndex = 3;
+            this.lblArticulo.Text = "Nombre Artículo";
+            this.lblArticulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTArticulo
+            // 
+            this.lblTArticulo.Location = new System.Drawing.Point(0, 86);
+            this.lblTArticulo.Name = "lblTArticulo";
+            this.lblTArticulo.Size = new System.Drawing.Size(169, 23);
+            this.lblTArticulo.TabIndex = 2;
+            this.lblTArticulo.Text = "Artículo";
+            this.lblTArticulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblMarca
+            // 
+            this.lblMarca.Location = new System.Drawing.Point(1, 44);
+            this.lblMarca.Name = "lblMarca";
+            this.lblMarca.Size = new System.Drawing.Size(169, 23);
+            this.lblMarca.TabIndex = 1;
+            this.lblMarca.Text = "Nombre Marca";
+            this.lblMarca.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTMarca
+            // 
+            this.lblTMarca.Location = new System.Drawing.Point(0, 0);
+            this.lblTMarca.Name = "lblTMarca";
+            this.lblTMarca.Size = new System.Drawing.Size(169, 23);
+            this.lblTMarca.TabIndex = 0;
+            this.lblTMarca.Text = "Marca";
+            this.lblTMarca.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmMain
             // 
@@ -301,7 +301,11 @@
             this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.pbMain);
             this.Controls.Add(this.dgvMain);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimizeBox = false;
             this.Name = "FrmMain";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMain";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).EndInit();
