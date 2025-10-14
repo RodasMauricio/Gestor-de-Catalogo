@@ -128,13 +128,14 @@
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(145, 23);
             this.lblPrecio.TabIndex = 6;
-            this.lblPrecio.Text = "Precio";
+            this.lblPrecio.Text = "Precio $";
             this.lblPrecio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtCodigo
             // 
             this.txtCodigo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.Location = new System.Drawing.Point(151, 86);
+            this.txtCodigo.MaxLength = 10;
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(205, 23);
             this.txtCodigo.TabIndex = 7;
@@ -143,6 +144,7 @@
             // 
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(151, 141);
+            this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(205, 23);
             this.txtNombre.TabIndex = 8;
@@ -160,6 +162,7 @@
             // 
             this.txtPrecio.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecio.Location = new System.Drawing.Point(151, 429);
+            this.txtPrecio.MaxLength = 100;
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.ShortcutsEnabled = false;
             this.txtPrecio.Size = new System.Drawing.Size(205, 23);
@@ -170,6 +173,7 @@
             // 
             this.txtImagen.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtImagen.Location = new System.Drawing.Point(151, 370);
+            this.txtImagen.MaxLength = 1000;
             this.txtImagen.Name = "txtImagen";
             this.txtImagen.Size = new System.Drawing.Size(205, 23);
             this.txtImagen.TabIndex = 11;

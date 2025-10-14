@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,12 +56,12 @@ namespace GestorCatalogo
                     cbCategoria.SelectedValue = articulo.Categoria.Id;
                     txtImagen.Text = articulo.Imagen;
                     Ayuda.CargarPB(txtImagen.Text, pbAltaMod);
-                    txtPrecio.Text = articulo.Precio.ToString();
+                    txtPrecio.Text = articulo.Precio.ToString("N0");
                 }
             }
-            catch (Exception exc)
+            catch (Exception)
             {
-                MessageBox.Show(exc.ToString());
+                throw;
             }
         }
         private void InsertarDatos()
@@ -78,11 +79,10 @@ namespace GestorCatalogo
                 articulo.Imagen = txtImagen.Text;
                 if (txtPrecio.Text != "")
                     articulo.Precio = decimal.Parse(txtPrecio.Text);
-
             }
-            catch (Exception exc)
+            catch (Exception)
             {
-                MessageBox.Show(exc.ToString());
+                throw;
             }
         }
         
