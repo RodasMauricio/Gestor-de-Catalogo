@@ -309,12 +309,14 @@
             // lblXBusqueda
             // 
             this.lblXBusqueda.AutoSize = true;
+            this.lblXBusqueda.Enabled = false;
             this.lblXBusqueda.Font = new System.Drawing.Font("Segoe UI", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblXBusqueda.Location = new System.Drawing.Point(468, 13);
             this.lblXBusqueda.Name = "lblXBusqueda";
             this.lblXBusqueda.Size = new System.Drawing.Size(16, 17);
             this.lblXBusqueda.TabIndex = 17;
             this.lblXBusqueda.Text = "X";
+            this.lblXBusqueda.Visible = false;
             this.lblXBusqueda.Click += new System.EventHandler(this.lblXBusqueda_Click);
             // 
             // FrmMain

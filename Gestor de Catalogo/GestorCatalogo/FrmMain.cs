@@ -229,6 +229,18 @@ namespace GestorCatalogo
             dgvMain.DataSource = null;
             dgvMain.DataSource = filtroRapido;
             OcultarColumnas();
+
+            if (txtBusqueda.Text != "")
+            {
+                lblXBusqueda.Visible = true;
+                lblXBusqueda.Enabled = true;
+            }
+            else
+            {
+                lblXBusqueda.Visible = false;
+                lblXBusqueda.Enabled = false;
+            }
+
         }
         private void dgvMain_SelectionChanged(object sender, EventArgs e)
         {
@@ -236,12 +248,18 @@ namespace GestorCatalogo
             {
                 if (dgvMain.CurrentRow != null)
                 {
-                    Articulo seleccionado = (Articulo)dgvMain.CurrentRow.DataBoundItem;
-                    Ayuda.CargarPB(seleccionado.Imagen, pbMain);
+                    SeleccionArticulo();
+                    Ayuda.CargarPB(articulo.Imagen, pbMain);
+                    lblMarca.Text = articulo.Marca.Descripcion;
+                    lblArticulo.Text = articulo.Nombre;
+                    lblPrecio.Text = articulo.Precio.ToString("C0");
                     btnDetalle.Enabled = true;
                 }
                 else
                 {
+                    lblMarca.Text = "-";
+                    lblArticulo.Text = "-";
+                    lblPrecio.Text = "-";
                     Ayuda.CargarPB("", pbMain);
                     btnDetalle.Enabled = false;
                 }
@@ -341,7 +359,6 @@ namespace GestorCatalogo
                 }
             }
         }
-
 
         private void lblXBusqueda_Click(object sender, EventArgs e)
         {
