@@ -146,6 +146,13 @@ namespace GestorCatalogo
             }
         }
         
+        private void btnMarcaCategoria_Click(object sender, EventArgs e)
+        {
+            FrmMarcaCategoria ventana = new FrmMarcaCategoria();
+            ventana.ShowDialog();
+            CargarMain();
+        }
+
         private void btnDetalle_Click(object sender, EventArgs e)
         {
             if (dgvMain.Rows.Count > 0)
@@ -162,7 +169,7 @@ namespace GestorCatalogo
                 }
             }
         }
-
+        
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             cbFiltrarPor.Items.Clear();
@@ -214,6 +221,7 @@ namespace GestorCatalogo
             txtFiltro.Enabled = false;
             btnFiltrar.Enabled = false;
         }
+        
         
         //--Evento Botones
 
@@ -376,5 +384,6 @@ namespace GestorCatalogo
                 }
             }
         }
+
     }
 }

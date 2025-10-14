@@ -30,7 +30,10 @@ namespace GestorCatalogo
             listaCategoria = negocioCategoria.ListarCategorias();
             dgvMarca.DataSource = listaMarca;
             dgvCategoria.DataSource = listaCategoria;
-
+            dgvMarca.Columns["Id"].Visible = false;
+            dgvCategoria.Columns["Id"].Visible = false;
+            dgvMarca.Columns[1].Width = 145;
+            dgvCategoria.Columns[1].Width = 145;
         }
     }
 }
