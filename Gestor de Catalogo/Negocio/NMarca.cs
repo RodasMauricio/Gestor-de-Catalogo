@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Dominio;
 
 namespace Negocio
@@ -31,6 +32,29 @@ namespace Negocio
                 catch (Exception)
                 {
                     throw;
+                }
+            }
+        }
+    
+    
+        public void Agregar()
+        {
+
+        }
+        
+        public void Eliminar(Marca marca)
+        {
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta($"Delete MARCAS Where Id = {marca.Id}");
+                    datos.EjecutarComando();
+                    MessageBox.Show($"¡Marca \"{marca.Descripcion.ToUpper()}\" eliminada!");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("¡Error al eliminar la marca");
                 }
             }
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Dominio;
 
 namespace Negocio
@@ -31,6 +32,28 @@ namespace Negocio
                 catch (Exception)
                 {
                     throw;
+                }
+            }
+        }
+    
+        public void Agregar()
+        {
+
+        }
+
+        public void Eliminar(Categoria categoria)
+        {
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta($"Delete CATEGORIAS Where Id = {categoria.Id}");
+                    datos.EjecutarComando();
+                    MessageBox.Show($"¡Categoría \"{categoria.Descripcion.ToUpper()}\" eliminada!");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("¡Error al eliminar la categoría!");
                 }
             }
         }

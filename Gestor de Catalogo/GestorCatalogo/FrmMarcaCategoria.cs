@@ -45,16 +45,75 @@ namespace GestorCatalogo
             dgvCategoria.Columns["Id"].Visible = false;
             dgvCategoria.Columns[1].Width = 145;
         }
-
+        
+        
+        //Botones--
         private void btnActualizarMarca_Click(object sender, EventArgs e)
         {
             CargarMarca();
         }
-
+        
         private void btnActualizarCategoria_Click(object sender, EventArgs e)
         {
             CargarCategoria();
         }
+        
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            DialogResult r;
+            if (marca != null)
+            {
+                try
+                {
+                    r = MessageBox.Show($"¿Eliminar marca ({marca.Descripcion.ToUpper()})?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (r == DialogResult.Yes)
+                    {
+                        NMarca negocio = new NMarca();
+                        negocio.Eliminar(marca);
+                        CargarMarca();
+                        marca = null;
+                        btnEliminar.Enabled = false;
+                    }
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            else if (categoria != null)
+            {
+                r = MessageBox.Show($"¿Eliminar categoría ({categoria.Descripcion.ToUpper()})?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (r == DialogResult.Yes)
+                {
+                    try
+                    {
+                        NCategoria negocio = new NCategoria();
+                        negocio.Eliminar(categoria);
+                        CargarCategoria();
+                        categoria = null;
+                        btnEliminar.Enabled = false;
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+            else
+            {
+                btnEliminar.Enabled = false;
+            }
+            dgvMarca.ClearSelection();
+            dgvCategoria.ClearSelection();
+
+            if (dgvMarca.Rows.Count == 0)
+                dgvCategoria.Focus();
+            else if (dgvCategoria.Rows.Count == 0)
+                dgvMarca.Focus();
+                
+        }
+        //--Botones
+
 
         private void txtFiltroMarca_TextChanged(object sender, EventArgs e)
         {
@@ -69,6 +128,11 @@ namespace GestorCatalogo
                 lblXMarca.Visible = false;
             }
         }
+        private void lblXMarca_Click(object sender, EventArgs e)
+        {
+            txtFiltroMarca.Clear();
+        }
+
 
         private void txtFiltroCategoria_TextChanged(object sender, EventArgs e)
         {
@@ -83,16 +147,12 @@ namespace GestorCatalogo
                 lblXCategoria.Visible = false;
             }
         }
-
-        private void lblXMarca_Click(object sender, EventArgs e)
-        {
-            txtFiltroMarca.Clear();
-        }
-
         private void lblXCategoria_Click(object sender, EventArgs e)
         {
             txtFiltroCategoria.Clear();
         }
+
+
 
         private void dgvMarca_SelectionChanged(object sender, EventArgs e)
         {
@@ -100,6 +160,7 @@ namespace GestorCatalogo
             {
                 dgvCategoria.ClearSelection();
                 marca = (Marca)dgvMarca.CurrentRow.DataBoundItem;
+                btnEliminar.Enabled = true;
             }
             else
             {
@@ -109,10 +170,12 @@ namespace GestorCatalogo
 
         private void dgvCategoria_SelectionChanged(object sender, EventArgs e)
         {
+
             if (dgvCategoria.SelectedRows.Count > 0)
             {
                 dgvMarca.ClearSelection();
                 categoria = (Categoria)dgvCategoria.CurrentRow.DataBoundItem;
+                btnEliminar.Enabled = true;
             }
             else
             {
@@ -121,18 +184,5 @@ namespace GestorCatalogo
         }
 
 
-
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            if (marca == null)
-            {
-                MessageBox.Show($"¿Desea eliminar {categoria.Descripcion}?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            }
-            else
-            {
-                MessageBox.Show($"¿Desea eliminar {marca.Descripcion}?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            }
-        }
     }
 }
