@@ -24,16 +24,35 @@ namespace GestorCatalogo
 
         private void FrmMarcaCategoria_Load(object sender, EventArgs e)
         {
+            CargarMarca();
+            CargarCategoria();
+        }
+
+        private void CargarMarca()
+        {
             NMarca negocioMarca = new NMarca();
-            NCategoria negocioCategoria = new NCategoria();
             listaMarca = negocioMarca.ListarMarcas();
-            listaCategoria = negocioCategoria.ListarCategorias();
             dgvMarca.DataSource = listaMarca;
-            dgvCategoria.DataSource = listaCategoria;
             dgvMarca.Columns["Id"].Visible = false;
-            dgvCategoria.Columns["Id"].Visible = false;
             dgvMarca.Columns[1].Width = 145;
+        }
+        private void CargarCategoria()
+        {
+            NCategoria negocioCategoria = new NCategoria();
+            listaCategoria = negocioCategoria.ListarCategorias();
+            dgvCategoria.DataSource = listaCategoria;
+            dgvCategoria.Columns["Id"].Visible = false;
             dgvCategoria.Columns[1].Width = 145;
+        }
+
+        private void btnActualizarMarca_Click(object sender, EventArgs e)
+        {
+            CargarMarca();
+        }
+
+        private void btnActualizarCategoria_Click(object sender, EventArgs e)
+        {
+            CargarCategoria();
         }
     }
 }
