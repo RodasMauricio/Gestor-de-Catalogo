@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvMarca = new System.Windows.Forms.DataGridView();
             this.dgvCategoria = new System.Windows.Forms.DataGridView();
             this.lblMarca = new System.Windows.Forms.Label();
@@ -45,6 +45,10 @@
             this.btnAgregarMarca = new System.Windows.Forms.Button();
             this.btnAgregarCategoria = new System.Windows.Forms.Button();
             this.txtAgregarCategoria = new System.Windows.Forms.TextBox();
+            this.txtModificarMarca = new System.Windows.Forms.TextBox();
+            this.btnModificarMarca = new System.Windows.Forms.Button();
+            this.txtModificarCategoria = new System.Windows.Forms.TextBox();
+            this.btnModificarCategoria = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarca)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).BeginInit();
             this.SuspendLayout();
@@ -53,14 +57,14 @@
             // 
             this.dgvMarca.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMarca.ColumnHeadersVisible = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMarca.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMarca.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvMarca.Location = new System.Drawing.Point(88, 87);
             this.dgvMarca.MultiSelect = false;
             this.dgvMarca.Name = "dgvMarca";
@@ -77,14 +81,14 @@
             // 
             this.dgvCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCategoria.ColumnHeadersVisible = false;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCategoria.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCategoria.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvCategoria.Location = new System.Drawing.Point(402, 87);
             this.dgvCategoria.MultiSelect = false;
             this.dgvCategoria.Name = "dgvCategoria";
@@ -236,11 +240,49 @@
             this.txtAgregarCategoria.Size = new System.Drawing.Size(148, 20);
             this.txtAgregarCategoria.TabIndex = 16;
             // 
+            // txtModificarMarca
+            // 
+            this.txtModificarMarca.Location = new System.Drawing.Point(71, 537);
+            this.txtModificarMarca.Name = "txtModificarMarca";
+            this.txtModificarMarca.Size = new System.Drawing.Size(149, 20);
+            this.txtModificarMarca.TabIndex = 17;
+            // 
+            // btnModificarMarca
+            // 
+            this.btnModificarMarca.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarMarca.Location = new System.Drawing.Point(226, 536);
+            this.btnModificarMarca.Name = "btnModificarMarca";
+            this.btnModificarMarca.Size = new System.Drawing.Size(64, 23);
+            this.btnModificarMarca.TabIndex = 18;
+            this.btnModificarMarca.Text = "Modificar";
+            this.btnModificarMarca.UseVisualStyleBackColor = true;
+            // 
+            // txtModificarCategoria
+            // 
+            this.txtModificarCategoria.Location = new System.Drawing.Point(386, 535);
+            this.txtModificarCategoria.Name = "txtModificarCategoria";
+            this.txtModificarCategoria.Size = new System.Drawing.Size(148, 20);
+            this.txtModificarCategoria.TabIndex = 19;
+            // 
+            // btnModificarCategoria
+            // 
+            this.btnModificarCategoria.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarCategoria.Location = new System.Drawing.Point(542, 534);
+            this.btnModificarCategoria.Name = "btnModificarCategoria";
+            this.btnModificarCategoria.Size = new System.Drawing.Size(64, 23);
+            this.btnModificarCategoria.TabIndex = 20;
+            this.btnModificarCategoria.Text = "Modificar";
+            this.btnModificarCategoria.UseVisualStyleBackColor = true;
+            // 
             // FrmMarcaCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 601);
+            this.Controls.Add(this.btnModificarCategoria);
+            this.Controls.Add(this.txtModificarCategoria);
+            this.Controls.Add(this.btnModificarMarca);
+            this.Controls.Add(this.txtModificarMarca);
             this.Controls.Add(this.txtAgregarCategoria);
             this.Controls.Add(this.btnAgregarCategoria);
             this.Controls.Add(this.btnAgregarMarca);
@@ -256,6 +298,8 @@
             this.Controls.Add(this.lblMarca);
             this.Controls.Add(this.dgvCategoria);
             this.Controls.Add(this.dgvMarca);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FrmMarcaCategoria";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -284,5 +328,9 @@
         private System.Windows.Forms.Button btnAgregarMarca;
         private System.Windows.Forms.Button btnAgregarCategoria;
         private System.Windows.Forms.TextBox txtAgregarCategoria;
+        private System.Windows.Forms.TextBox txtModificarMarca;
+        private System.Windows.Forms.Button btnModificarMarca;
+        private System.Windows.Forms.TextBox txtModificarCategoria;
+        private System.Windows.Forms.Button btnModificarCategoria;
     }
 }

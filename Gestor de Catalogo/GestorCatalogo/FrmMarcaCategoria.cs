@@ -61,11 +61,15 @@ namespace GestorCatalogo
         private void btnActualizarMarca_Click(object sender, EventArgs e)
         {
             CargarMarca();
+            txtFiltroMarca.Clear();
+            txtAgregarMarca.Clear();
         }
         
         private void btnActualizarCategoria_Click(object sender, EventArgs e)
         {
             CargarCategoria();
+            txtFiltroCategoria.Clear();
+            txtAgregarCategoria.Clear();
         }
         
         private void btnEliminar_Click(object sender, EventArgs e)
