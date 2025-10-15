@@ -7,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 using Dominio;
 using Negocio;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 
 namespace GestorCatalogo
 {
@@ -46,6 +48,14 @@ namespace GestorCatalogo
             dgvCategoria.Columns[1].Width = 145;
         }
         
+        private bool ValidacionAgregar(string x)
+        {
+            DialogResult r = MessageBox.Show($"¿Desea agregar \"{x}\"?", "Agregar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (r == DialogResult.Yes)
+                return true;
+            else
+                return false;
+        }
         
         //Botones--
         private void btnActualizarMarca_Click(object sender, EventArgs e)
@@ -111,6 +121,44 @@ namespace GestorCatalogo
             else if (dgvCategoria.Rows.Count == 0)
                 dgvMarca.Focus();
                 
+        }
+       
+        private void btnAgregarMarca_Click(object sender, EventArgs e)
+        {
+            if (txtAgregarMarca.Text != "")
+            {
+                string marca = txtAgregarMarca.Text; 
+                if (ValidacionAgregar(marca))
+                { 
+                    try
+                    {
+                        NMarca negocio = new NMarca();
+                        string marcaF = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(marca.ToLower());
+                        negocio.Agregar(marcaF);
+                        CargarMarca();
+                        txtAgregarMarca.Clear();
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+        private void btnAgregarCategoria_Click(object sender, EventArgs e)
+        {
+            if (txtAgregarCategoria.Text != "")
+            {
+                string categoria = txtAgregarCategoria.Text;
+                if(ValidacionAgregar(categoria))
+                {
+                    NCategoria negocio = new NCategoria();
+                    string categoriaF = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(categoria.ToLower());
+                    negocio.Agregar(categoriaF);
+                    CargarCategoria();
+                    txtAgregarCategoria.Clear();
+                }
+            }
         }
         //--Botones
 
@@ -182,7 +230,6 @@ namespace GestorCatalogo
                 categoria = null;
             }
         }
-
 
     }
 }

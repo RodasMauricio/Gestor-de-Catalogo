@@ -37,9 +37,22 @@ namespace Negocio
         }
     
     
-        public void Agregar()
+        public void Agregar(string marca)
         {
-
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta("Insert Into MARCAS values (@marca)");
+                    datos.Parametros("@marca", marca);
+                    datos.EjecutarComando();
+                    MessageBox.Show($"¡Marca \"{marca}\" agregada!");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("¡Error al agregar la marca");
+                }
+            }
         }
         
         public void Eliminar(Marca marca)

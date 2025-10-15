@@ -36,9 +36,22 @@ namespace Negocio
             }
         }
     
-        public void Agregar()
+        public void Agregar(string categoria)
         {
-
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta("Insert Into CATEGORIAS values (@categoria)");
+                    datos.Parametros("@categoria", categoria);
+                    datos.EjecutarComando();
+                    MessageBox.Show($"¡Categoría \"{categoria}\" agregada!");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("¡Error al agregar la categoría");
+                }
+            }
         }
 
         public void Eliminar(Categoria categoria)
