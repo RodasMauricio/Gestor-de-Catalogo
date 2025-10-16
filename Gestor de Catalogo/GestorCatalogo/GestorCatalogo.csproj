@@ -52,6 +52,12 @@
     <Compile Include="FrmAltaModificar.Designer.cs">
       <DependentUpon>FrmAltaModificar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmArticulosAfectados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmArticulosAfectados.Designer.cs">
+      <DependentUpon>FrmArticulosAfectados.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDetalle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAltaModificar.resx">
       <DependentUpon>FrmAltaModificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmArticulosAfectados.resx">
+      <DependentUpon>FrmArticulosAfectados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDetalle.resx">
       <DependentUpon>FrmDetalle.cs</DependentUpon>

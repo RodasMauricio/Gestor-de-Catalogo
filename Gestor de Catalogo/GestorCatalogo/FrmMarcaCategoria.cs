@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using System.Globalization;
 using Dominio;
 using Negocio;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
 
 namespace GestorCatalogo
 {
@@ -39,7 +38,6 @@ namespace GestorCatalogo
             listaMarca = negocioMarca.ListarMarcas();
             dgvMarca.DataSource = listaMarca;
             dgvMarca.Columns["Id"].Visible = false;
-            dgvMarca.Columns[1].Width = 145;
         }
         private void CargarCategoria()
         {
@@ -47,9 +45,10 @@ namespace GestorCatalogo
             listaCategoria = negocioCategoria.ListarCategorias();
             dgvCategoria.DataSource = listaCategoria;
             dgvCategoria.Columns["Id"].Visible = false;
-            dgvCategoria.Columns[1].Width = 145;
         }
         
+
+
         private bool ValidacionAgregar(string x)
         {
             DialogResult r = MessageBox.Show($"¿Desea agregar \"{x}\"?", "Agregar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -66,9 +65,26 @@ namespace GestorCatalogo
             else
                 return false;
         }
+        
+        private void LimpiarBloquearTxtModificar()
+        {
+            txtModificarMarca.Clear();
+            txtModificarMarca.Enabled = false;
+
+            txtModificarCategoria.Clear();
+            txtModificarCategoria.Enabled = false;
+        }
 
         private void txtFiltroMarca_TextChanged(object sender, EventArgs e)
         {
+            List<Marca> filtroMarca;
+            string filtro = txtFiltroMarca.Text.ToUpper();
+
+            filtroMarca = listaMarca.FindAll(x => x.Descripcion.ToUpper().Contains(filtro));
+            dgvMarca.DataSource = null;
+            dgvMarca.DataSource = filtroMarca;
+            dgvMarca.Columns["Id"].Visible = false;
+
             if (txtFiltroMarca.Text != "")
             {
                 lblXMarca.Enabled = true;
@@ -87,6 +103,14 @@ namespace GestorCatalogo
         
         private void txtFiltroCategoria_TextChanged(object sender, EventArgs e)
         {
+            List<Categoria> filtroCategoria;
+            string filtro = txtFiltroCategoria.Text.ToUpper();
+
+            filtroCategoria = listaCategoria.FindAll(x => x.Descripcion.ToUpper().Contains(filtro));
+            dgvCategoria.DataSource = null;
+            dgvCategoria.DataSource = filtroCategoria;
+            dgvCategoria.Columns["Id"].Visible = false;
+
             if (txtFiltroCategoria.Text != "")
             {
                 lblXCategoria.Enabled = true;
@@ -111,13 +135,17 @@ namespace GestorCatalogo
             CargarMarca();
             txtFiltroMarca.Clear();
             txtAgregarMarca.Clear();
+            txtModificarMarca.Clear();
+            txtModificarMarca.Enabled = false;
         }
-        
+
         private void btnActualizarCategoria_Click(object sender, EventArgs e)
         {
             CargarCategoria();
             txtFiltroCategoria.Clear();
             txtAgregarCategoria.Clear();
+            txtModificarCategoria.Clear();
+            txtModificarMarca.Enabled = false;
         }
         
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -226,14 +254,18 @@ namespace GestorCatalogo
             if (categoria != null)
             {
                 categoriaAntigua = categoria.Descripcion;
+                txtModificarCategoria.Enabled = true;
                 txtModificarCategoria.Text = categoria.Descripcion;
                 txtModificarMarca.Clear();
+                txtModificarMarca.Enabled = false;
             }
             else if (marca != null)
             {
                 marcaAntigua = marca.Descripcion;
+                txtModificarMarca.Enabled = true;
                 txtModificarMarca.Text = marca.Descripcion;
                 txtModificarCategoria.Clear();
+                txtModificarCategoria.Enabled = false;
             }
         }
        
@@ -252,6 +284,8 @@ namespace GestorCatalogo
                         negocio.Modificar(marcaModificada, id, marcaAntigua);
                         CargarMarca();
                         dgvMarca.ClearSelection();
+                        txtModificarMarca.Clear();
+                        txtModificarMarca.Enabled = false;
                     }
                     catch (Exception)
                     {
@@ -276,12 +310,28 @@ namespace GestorCatalogo
                         negocio.Modificar(categoriaModificada, id, categoriaAntigua);
                         CargarCategoria();
                         dgvMarca.ClearSelection();
+                        txtModificarCategoria.Clear();
+                        txtModificarCategoria.Enabled = false;
                     }
                     catch (Exception)
                     {
                         throw;
                     }
                 }
+            }
+        }
+        
+        private void btnArticulosAfectados_Click(object sender, EventArgs e)
+        {
+           
+            try
+            {
+                FrmArticulosAfectados ventana = new FrmArticulosAfectados();
+                ventana.ShowDialog();
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
         //--Botones
@@ -305,15 +355,12 @@ namespace GestorCatalogo
         }
 
 
-
-
-
-
         private void dgvMarca_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvMarca.SelectedRows.Count > 0)
             {
                 dgvCategoria.ClearSelection();
+                LimpiarBloquearTxtModificar();
                 marca = (Marca)dgvMarca.CurrentRow.DataBoundItem;
                 btnEliminar.Enabled = true;
             }
@@ -322,13 +369,13 @@ namespace GestorCatalogo
                 marca = null;
             }
         }
-
         private void dgvCategoria_SelectionChanged(object sender, EventArgs e)
         {
 
             if (dgvCategoria.SelectedRows.Count > 0)
             {
                 dgvMarca.ClearSelection();
+                LimpiarBloquearTxtModificar();
                 categoria = (Categoria)dgvCategoria.CurrentRow.DataBoundItem;
                 btnEliminar.Enabled = true;
             }

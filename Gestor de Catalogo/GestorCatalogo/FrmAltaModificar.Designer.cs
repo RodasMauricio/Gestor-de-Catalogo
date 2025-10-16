@@ -138,7 +138,7 @@
             this.txtCodigo.MaxLength = 10;
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(205, 23);
-            this.txtCodigo.TabIndex = 7;
+            this.txtCodigo.TabIndex = 0;
             // 
             // txtNombre
             // 
@@ -147,7 +147,7 @@
             this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(205, 23);
-            this.txtNombre.TabIndex = 8;
+            this.txtNombre.TabIndex = 1;
             // 
             // txtDescripcion
             // 
@@ -156,7 +156,7 @@
             this.txtDescripcion.MaxLength = 120;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(205, 23);
-            this.txtDescripcion.TabIndex = 9;
+            this.txtDescripcion.TabIndex = 2;
             // 
             // txtPrecio
             // 
@@ -166,7 +166,7 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.ShortcutsEnabled = false;
             this.txtPrecio.Size = new System.Drawing.Size(205, 23);
-            this.txtPrecio.TabIndex = 10;
+            this.txtPrecio.TabIndex = 6;
             this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
             // txtImagen
@@ -176,7 +176,7 @@
             this.txtImagen.MaxLength = 1000;
             this.txtImagen.Name = "txtImagen";
             this.txtImagen.Size = new System.Drawing.Size(205, 23);
-            this.txtImagen.TabIndex = 11;
+            this.txtImagen.TabIndex = 5;
             this.txtImagen.Leave += new System.EventHandler(this.txtImagen_Leave);
             // 
             // cbMarca
@@ -187,7 +187,7 @@
             this.cbMarca.Location = new System.Drawing.Point(151, 254);
             this.cbMarca.Name = "cbMarca";
             this.cbMarca.Size = new System.Drawing.Size(205, 23);
-            this.cbMarca.TabIndex = 12;
+            this.cbMarca.TabIndex = 3;
             // 
             // cbCategoria
             // 
@@ -197,7 +197,7 @@
             this.cbCategoria.Location = new System.Drawing.Point(151, 310);
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(205, 23);
-            this.cbCategoria.TabIndex = 13;
+            this.cbCategoria.TabIndex = 4;
             // 
             // pbAltaMod
             // 
@@ -214,7 +214,7 @@
             this.btnAceptar.Location = new System.Drawing.Point(226, 534);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
-            this.btnAceptar.TabIndex = 15;
+            this.btnAceptar.TabIndex = 7;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -225,7 +225,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(378, 534);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 16;
+            this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -306,7 +306,9 @@
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.txtCodigo);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FrmAltaModificar";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -232,7 +232,11 @@
             this.Controls.Add(this.lblDCategoria);
             this.Controls.Add(this.lblDNombre);
             this.Controls.Add(this.lblDCodigo);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FrmDetalle";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmDetalle";
             this.Load += new System.EventHandler(this.FrmDetalle_Load);

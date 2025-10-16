@@ -33,7 +33,8 @@ namespace GestorCatalogo
             listaArticulos = negocio.ListarArticulos();
             dgvMain.DataSource = listaArticulos;
             OcultarColumnas();
-            Ayuda.CargarPB(listaArticulos[0].Imagen, pbMain);
+            if (listaArticulos.Count > 0)
+                Ayuda.CargarPB(listaArticulos[0].Imagen, pbMain);
             if (cbFiltrarPor.Items.Count == 0)
                 CargarFiltrarPor();
         }

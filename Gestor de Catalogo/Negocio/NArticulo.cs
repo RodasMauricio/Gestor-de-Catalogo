@@ -32,11 +32,17 @@ namespace Negocio
                         a.Nombre = (string)datos.Lector["Nombre"];
                         a.Descripcion = (string)datos.Lector["Descripcion"];
                         a.Marca = new Marca();
-                        a.Marca.Id = (int)datos.Lector["IdMarca"];
-                        a.Marca.Descripcion = (string)datos.Lector["Marca"];
+                        if (!(datos.Lector["IdMarca"] is null && datos.Lector["Marca"] is null))
+                        {
+                            a.Marca.Id = (int)datos.Lector["IdMarca"];
+                            a.Marca.Descripcion = (string)datos.Lector["Marca"];
+                        }
                         a.Categoria = new Categoria();
-                        a.Categoria.Id = (int)datos.Lector["IdCategoria"];
-                        a.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+                        if (!(datos.Lector["IdCategoria"] is null && datos.Lector["Categoria"] is null))
+                        {
+                            a.Categoria.Id = (int)datos.Lector["IdCategoria"];
+                            a.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+                        }
 
                         if (!(datos.Lector["Imagen"] is DBNull))
                             a.Imagen = (string)datos.Lector["Imagen"];
@@ -119,6 +125,65 @@ namespace Negocio
                 }
             }
         }
+
+
+        public List<Articulo> ListarArticulosAfectados()
+        {
+          string consulta = "SELECT a.Id, a.Codigo, a.Nombre, a.Descripcion, a.IdMarca, m.Descripcion Marca, a.IdCategoria, c.Descripcion Categoria, a.ImagenUrl, a.Precio FROM Articulos a LEFT JOIN Marcas m ON a.IdMarca = m.Id LEFT JOIN Categorias c ON a.IdCategoria = c.Id WHERE m.Id IS NULL OR c.Id IS NULL";
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                List<Articulo> listaArticulosAfectados = new List<Articulo>();
+                try
+                {
+                    datos.Consulta(consulta);
+                    datos.EjecutarConsulta();
+
+                    while (datos.Lector.Read())
+                    {
+                        Articulo a = new Articulo();
+
+                        a.Id = (int)datos.Lector["Id"];
+                        a.Codigo = (string)datos.Lector["Codigo"];
+                        a.Nombre = (string)datos.Lector["Nombre"];
+                        a.Descripcion = (string)datos.Lector["Descripcion"];
+                        a.Marca = new Marca();
+                        a.Marca.Id = (int)datos.Lector["IdMarca"];
+                        if (!(datos.Lector["Marca"] is DBNull))
+                        {
+                            a.Marca.Descripcion = (string)datos.Lector["Marca"];
+                        }
+                        else
+                        {
+                            a.Marca.Descripcion = "-";
+                        }
+                        a.Categoria = new Categoria();
+                        a.Categoria.Id = (int)datos.Lector["IdCategoria"];
+                        if (!(datos.Lector["Categoria"] is DBNull))
+                        {
+                            a.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+                        }
+                        else
+                        {
+                            a.Categoria.Descripcion = "-";
+                        }
+
+                        if (!(datos.Lector["ImagenUrl"] is DBNull))
+                            a.Imagen = (string)datos.Lector["ImagenUrl"];
+
+                        a.Precio = (decimal)datos.Lector["Precio"];
+
+                        listaArticulosAfectados.Add(a);
+                    }
+                    return listaArticulosAfectados;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+        }
+
+
 
         public void Agregar(Articulo a)
         {

@@ -71,7 +71,6 @@ namespace Negocio
             }
         }
 
-
         public void Modificar(string categoriaModificada, int id, string categoriaAntigua)
         {
             using (AccesoDatos datos = new AccesoDatos())

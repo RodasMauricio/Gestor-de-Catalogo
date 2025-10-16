@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvMain = new System.Windows.Forms.DataGridView();
             this.pbMain = new System.Windows.Forms.PictureBox();
             this.btnDetalle = new System.Windows.Forms.Button();
@@ -61,16 +60,10 @@
             // 
             // dgvMain
             // 
+            this.dgvMain.AllowUserToResizeColumns = false;
             this.dgvMain.AllowUserToResizeRows = false;
+            this.dgvMain.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMain.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvMain.Location = new System.Drawing.Point(164, 37);
             this.dgvMain.MultiSelect = false;
             this.dgvMain.Name = "dgvMain";
@@ -79,7 +72,7 @@
             this.dgvMain.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgvMain.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMain.Size = new System.Drawing.Size(642, 520);
-            this.dgvMain.TabIndex = 0;
+            this.dgvMain.TabIndex = 13;
             this.dgvMain.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvMain_CellFormatting);
             this.dgvMain.SelectionChanged += new System.EventHandler(this.dgvMain_SelectionChanged);
             // 
@@ -98,7 +91,7 @@
             this.btnDetalle.Location = new System.Drawing.Point(872, 534);
             this.btnDetalle.Name = "btnDetalle";
             this.btnDetalle.Size = new System.Drawing.Size(75, 23);
-            this.btnDetalle.TabIndex = 2;
+            this.btnDetalle.TabIndex = 12;
             this.btnDetalle.Text = "Ver Detalle";
             this.btnDetalle.UseVisualStyleBackColor = true;
             this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
@@ -109,7 +102,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(13, 59);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(137, 30);
-            this.btnAgregar.TabIndex = 3;
+            this.btnAgregar.TabIndex = 2;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -120,7 +113,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(13, 89);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(137, 30);
-            this.btnEliminar.TabIndex = 4;
+            this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -131,7 +124,7 @@
             this.btnModificar.Location = new System.Drawing.Point(13, 119);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(137, 30);
-            this.btnModificar.TabIndex = 5;
+            this.btnModificar.TabIndex = 4;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
@@ -142,7 +135,7 @@
             this.txtBusqueda.Location = new System.Drawing.Point(164, 11);
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(321, 23);
-            this.txtBusqueda.TabIndex = 6;
+            this.txtBusqueda.TabIndex = 0;
             this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
             // 
             // lblTituloFiltrar
@@ -173,7 +166,7 @@
             this.cbFiltrarPor.Location = new System.Drawing.Point(20, 329);
             this.cbFiltrarPor.Name = "cbFiltrarPor";
             this.cbFiltrarPor.Size = new System.Drawing.Size(121, 21);
-            this.cbFiltrarPor.TabIndex = 9;
+            this.cbFiltrarPor.TabIndex = 6;
             this.cbFiltrarPor.SelectedIndexChanged += new System.EventHandler(this.cbFiltrarPor_SelectedIndexChanged);
             // 
             // cbCriterio
@@ -185,7 +178,7 @@
             this.cbCriterio.Location = new System.Drawing.Point(20, 371);
             this.cbCriterio.Name = "cbCriterio";
             this.cbCriterio.Size = new System.Drawing.Size(121, 21);
-            this.cbCriterio.TabIndex = 10;
+            this.cbCriterio.TabIndex = 7;
             this.cbCriterio.SelectedIndexChanged += new System.EventHandler(this.cbCriterio_SelectedIndexChanged);
             // 
             // txtFiltro
@@ -195,7 +188,7 @@
             this.txtFiltro.Location = new System.Drawing.Point(20, 413);
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(121, 23);
-            this.txtFiltro.TabIndex = 11;
+            this.txtFiltro.TabIndex = 8;
             this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             this.txtFiltro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFiltro_KeyPress);
             // 
@@ -206,7 +199,7 @@
             this.btnFiltrar.Location = new System.Drawing.Point(42, 447);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(75, 23);
-            this.btnFiltrar.TabIndex = 12;
+            this.btnFiltrar.TabIndex = 9;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
@@ -217,7 +210,7 @@
             this.btnActualizar.Location = new System.Drawing.Point(731, 566);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
-            this.btnActualizar.TabIndex = 13;
+            this.btnActualizar.TabIndex = 11;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
@@ -229,7 +222,7 @@
             this.btnLimpiar.Location = new System.Drawing.Point(42, 476);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 14;
+            this.btnLimpiar.TabIndex = 10;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
@@ -265,7 +258,7 @@
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(169, 23);
             this.lblPrecio.TabIndex = 5;
-            this.lblPrecio.Text = "Precio Artículo";
+            this.lblPrecio.Text = "-";
             this.lblPrecio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTPrecio
@@ -286,7 +279,7 @@
             this.lblArticulo.Name = "lblArticulo";
             this.lblArticulo.Size = new System.Drawing.Size(169, 23);
             this.lblArticulo.TabIndex = 3;
-            this.lblArticulo.Text = "Nombre Artículo";
+            this.lblArticulo.Text = "-";
             this.lblArticulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTArticulo
@@ -307,7 +300,7 @@
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(169, 23);
             this.lblMarca.TabIndex = 1;
-            this.lblMarca.Text = "Nombre Marca";
+            this.lblMarca.Text = "-";
             this.lblMarca.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTMarca
@@ -329,7 +322,7 @@
             this.lblXBusqueda.Location = new System.Drawing.Point(468, 13);
             this.lblXBusqueda.Name = "lblXBusqueda";
             this.lblXBusqueda.Size = new System.Drawing.Size(16, 17);
-            this.lblXBusqueda.TabIndex = 17;
+            this.lblXBusqueda.TabIndex = 1;
             this.lblXBusqueda.Text = "X";
             this.lblXBusqueda.Visible = false;
             this.lblXBusqueda.Click += new System.EventHandler(this.lblXBusqueda_Click);
@@ -340,7 +333,7 @@
             this.btnMarcaCategoria.Location = new System.Drawing.Point(12, 194);
             this.btnMarcaCategoria.Name = "btnMarcaCategoria";
             this.btnMarcaCategoria.Size = new System.Drawing.Size(137, 30);
-            this.btnMarcaCategoria.TabIndex = 19;
+            this.btnMarcaCategoria.TabIndex = 5;
             this.btnMarcaCategoria.Text = "Marca - Categoría";
             this.btnMarcaCategoria.UseVisualStyleBackColor = true;
             this.btnMarcaCategoria.Click += new System.EventHandler(this.btnMarcaCategoria_Click);
@@ -370,6 +363,7 @@
             this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.pbMain);
             this.Controls.Add(this.dgvMain);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FrmMain";
