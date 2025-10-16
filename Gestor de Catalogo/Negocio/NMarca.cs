@@ -71,5 +71,25 @@ namespace Negocio
                 }
             }
         }
+
+        public void Modificar(string marcaModificada, int id, string marcaAntigua)
+        {
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta("Update MARCAS set Descripcion = @marcaModificada Where Id = @id");
+                    datos.Parametros("@marcaModificada", marcaModificada);
+                    datos.Parametros("@id", id);
+                    datos.EjecutarComando();
+                    MessageBox.Show($"¡Marca \"{marcaAntigua}\" se modificó a \"{marcaModificada}\"!");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("¡Error al modificar la marca!");;
+                }
+            }
+        }
+
     }
 }

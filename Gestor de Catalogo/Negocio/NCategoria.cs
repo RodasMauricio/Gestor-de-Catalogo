@@ -70,5 +70,25 @@ namespace Negocio
                 }
             }
         }
+
+
+        public void Modificar(string categoriaModificada, int id, string categoriaAntigua)
+        {
+            using (AccesoDatos datos = new AccesoDatos())
+            {
+                try
+                {
+                    datos.Consulta("Update CATEGORIAS set Descripcion = @categoriaModificada Where Id = @id");
+                    datos.Parametros("@categoriaModificada", categoriaModificada);
+                    datos.Parametros("@id", id);
+                    datos.EjecutarComando();
+                    MessageBox.Show($"¡Categoría \"{categoriaAntigua}\" se modificó a \"{categoriaModificada}\"!");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("¡Error al modificar la categoría!");
+                }
+            }
+        }
     }
 }

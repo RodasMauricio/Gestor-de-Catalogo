@@ -49,6 +49,7 @@
             this.btnModificarMarca = new System.Windows.Forms.Button();
             this.txtModificarCategoria = new System.Windows.Forms.TextBox();
             this.btnModificarCategoria = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarca)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).BeginInit();
             this.SuspendLayout();
@@ -124,7 +125,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Enabled = false;
-            this.btnEliminar.Location = new System.Drawing.Point(299, 275);
+            this.btnEliminar.Location = new System.Drawing.Point(300, 247);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 6;
@@ -246,9 +247,11 @@
             this.txtModificarMarca.Name = "txtModificarMarca";
             this.txtModificarMarca.Size = new System.Drawing.Size(149, 20);
             this.txtModificarMarca.TabIndex = 17;
+            this.txtModificarMarca.TextChanged += new System.EventHandler(this.txtModificarMarca_TextChanged);
             // 
             // btnModificarMarca
             // 
+            this.btnModificarMarca.Enabled = false;
             this.btnModificarMarca.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificarMarca.Location = new System.Drawing.Point(226, 536);
             this.btnModificarMarca.Name = "btnModificarMarca";
@@ -256,6 +259,7 @@
             this.btnModificarMarca.TabIndex = 18;
             this.btnModificarMarca.Text = "Modificar";
             this.btnModificarMarca.UseVisualStyleBackColor = true;
+            this.btnModificarMarca.Click += new System.EventHandler(this.btnModificarMarca_Click);
             // 
             // txtModificarCategoria
             // 
@@ -263,6 +267,7 @@
             this.txtModificarCategoria.Name = "txtModificarCategoria";
             this.txtModificarCategoria.Size = new System.Drawing.Size(148, 20);
             this.txtModificarCategoria.TabIndex = 19;
+            this.txtModificarCategoria.TextChanged += new System.EventHandler(this.txtModificarCategoria_TextChanged);
             // 
             // btnModificarCategoria
             // 
@@ -273,12 +278,24 @@
             this.btnModificarCategoria.TabIndex = 20;
             this.btnModificarCategoria.Text = "Modificar";
             this.btnModificarCategoria.UseVisualStyleBackColor = true;
+            this.btnModificarCategoria.Click += new System.EventHandler(this.btnModificarCategoria_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(300, 289);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(75, 23);
+            this.btnModificar.TabIndex = 21;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // FrmMarcaCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 601);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnModificarCategoria);
             this.Controls.Add(this.txtModificarCategoria);
             this.Controls.Add(this.btnModificarMarca);
@@ -332,5 +349,6 @@
         private System.Windows.Forms.Button btnModificarMarca;
         private System.Windows.Forms.TextBox txtModificarCategoria;
         private System.Windows.Forms.Button btnModificarCategoria;
+        private System.Windows.Forms.Button btnModificar;
     }
 }
