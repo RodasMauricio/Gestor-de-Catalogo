@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Globalization;
 using Dominio;
 using Negocio;
+using System.Drawing.Text;
 
 namespace GestorCatalogo
 {
@@ -21,6 +22,7 @@ namespace GestorCatalogo
         private List<Categoria> listaCategoria;
         private string marcaAntigua = null;
         private string categoriaAntigua = null;
+        private string cantidadAfectados = "0";
         public FrmMarcaCategoria()
         {
             InitializeComponent();
@@ -38,6 +40,7 @@ namespace GestorCatalogo
             listaMarca = negocioMarca.ListarMarcas();
             dgvMarca.DataSource = listaMarca;
             dgvMarca.Columns["Id"].Visible = false;
+            NumeroDeArticulosAfectados();
         }
         private void CargarCategoria()
         {
@@ -45,9 +48,17 @@ namespace GestorCatalogo
             listaCategoria = negocioCategoria.ListarCategorias();
             dgvCategoria.DataSource = listaCategoria;
             dgvCategoria.Columns["Id"].Visible = false;
+            NumeroDeArticulosAfectados();
         }
-        
 
+        public void NumeroDeArticulosAfectados()
+        {
+            List<Articulo> listaAfectados;
+            NArticulo negocio = new NArticulo();
+            listaAfectados = negocio.ListarArticulosAfectados();
+            cantidadAfectados = listaAfectados.Count.ToString();
+            btnArticulosAfectados.Text = cantidadAfectados;
+        }
 
         private bool ValidacionAgregar(string x)
         {
@@ -328,6 +339,7 @@ namespace GestorCatalogo
             {
                 FrmArticulosAfectados ventana = new FrmArticulosAfectados();
                 ventana.ShowDialog();
+                NumeroDeArticulosAfectados();
             }
             catch (Exception)
             {

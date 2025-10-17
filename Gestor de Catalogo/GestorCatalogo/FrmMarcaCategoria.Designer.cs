@@ -61,7 +61,7 @@
             this.dgvMarca.AllowUserToResizeColumns = false;
             this.dgvMarca.AllowUserToResizeRows = false;
             this.dgvMarca.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvMarca.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMarca.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvMarca.ColumnHeadersVisible = false;
             this.dgvMarca.Location = new System.Drawing.Point(88, 77);
             this.dgvMarca.MultiSelect = false;
@@ -299,7 +299,7 @@
             // 
             this.lblArticulosAfectados.AutoSize = true;
             this.lblArticulosAfectados.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArticulosAfectados.Location = new System.Drawing.Point(32, 577);
+            this.lblArticulosAfectados.Location = new System.Drawing.Point(30, 577);
             this.lblArticulosAfectados.Name = "lblArticulosAfectados";
             this.lblArticulosAfectados.Size = new System.Drawing.Size(110, 15);
             this.lblArticulosAfectados.TabIndex = 18;
@@ -311,7 +311,7 @@
             this.lblWarning.BackColor = System.Drawing.SystemColors.Window;
             this.lblWarning.Font = new System.Drawing.Font("Segoe UI Symbol", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWarning.ForeColor = System.Drawing.Color.Red;
-            this.lblWarning.Location = new System.Drawing.Point(3, 568);
+            this.lblWarning.Location = new System.Drawing.Point(3, 567);
             this.lblWarning.Name = "lblWarning";
             this.lblWarning.Size = new System.Drawing.Size(29, 28);
             this.lblWarning.TabIndex = 19;

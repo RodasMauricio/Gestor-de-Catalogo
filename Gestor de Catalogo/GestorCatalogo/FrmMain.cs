@@ -263,6 +263,8 @@ namespace GestorCatalogo
                     lblArticulo.Text = articulo.Nombre;
                     lblPrecio.Text = articulo.Precio.ToString("C0");
                     btnDetalle.Enabled = true;
+                    btnModificar.Enabled = true;
+                    btnEliminar.Enabled = true;
                 }
                 else
                 {
@@ -271,6 +273,8 @@ namespace GestorCatalogo
                     lblPrecio.Text = "-";
                     Ayuda.CargarPB("", pbMain);
                     btnDetalle.Enabled = false;
+                    btnModificar.Enabled = false;
+                    btnEliminar.Enabled = false;
                 }
             }
             catch (Exception)
