@@ -52,7 +52,7 @@
             // 
             this.lblCodigo.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lblCodigo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigo.Location = new System.Drawing.Point(0, 69);
+            this.lblCodigo.Location = new System.Drawing.Point(0, 61);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(145, 23);
             this.lblCodigo.TabIndex = 0;
@@ -63,7 +63,7 @@
             // 
             this.lblNombre.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(0, 116);
+            this.lblNombre.Location = new System.Drawing.Point(0, 108);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(145, 23);
             this.lblNombre.TabIndex = 1;
@@ -74,7 +74,7 @@
             // 
             this.lblCategoria.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lblCategoria.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoria.Location = new System.Drawing.Point(0, 159);
+            this.lblCategoria.Location = new System.Drawing.Point(0, 151);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(145, 23);
             this.lblCategoria.TabIndex = 2;
@@ -85,7 +85,7 @@
             // 
             this.lblMarca.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lblMarca.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMarca.Location = new System.Drawing.Point(0, 205);
+            this.lblMarca.Location = new System.Drawing.Point(0, 197);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(145, 23);
             this.lblMarca.TabIndex = 3;
@@ -96,7 +96,7 @@
             // 
             this.lblPrecio.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lblPrecio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecio.Location = new System.Drawing.Point(0, 250);
+            this.lblPrecio.Location = new System.Drawing.Point(0, 242);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(145, 23);
             this.lblPrecio.TabIndex = 4;
@@ -107,7 +107,7 @@
             // 
             this.lblDescripcion.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lblDescripcion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(0, 296);
+            this.lblDescripcion.Location = new System.Drawing.Point(0, 353);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(145, 23);
             this.lblDescripcion.TabIndex = 5;
@@ -118,7 +118,7 @@
             // 
             this.lblImagen.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lblImagen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblImagen.Location = new System.Drawing.Point(0, 361);
+            this.lblImagen.Location = new System.Drawing.Point(3, 288);
             this.lblImagen.Name = "lblImagen";
             this.lblImagen.Size = new System.Drawing.Size(145, 23);
             this.lblImagen.TabIndex = 6;
@@ -129,7 +129,7 @@
             // 
             this.lblDCodigo.AutoSize = true;
             this.lblDCodigo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDCodigo.Location = new System.Drawing.Point(158, 73);
+            this.lblDCodigo.Location = new System.Drawing.Point(158, 65);
             this.lblDCodigo.Name = "lblDCodigo";
             this.lblDCodigo.Size = new System.Drawing.Size(60, 17);
             this.lblDCodigo.TabIndex = 7;
@@ -139,7 +139,7 @@
             // 
             this.lblDNombre.AutoSize = true;
             this.lblDNombre.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDNombre.Location = new System.Drawing.Point(158, 120);
+            this.lblDNombre.Location = new System.Drawing.Point(158, 112);
             this.lblDNombre.Name = "lblDNombre";
             this.lblDNombre.Size = new System.Drawing.Size(66, 17);
             this.lblDNombre.TabIndex = 8;
@@ -149,7 +149,7 @@
             // 
             this.lblDCategoria.AutoSize = true;
             this.lblDCategoria.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDCategoria.Location = new System.Drawing.Point(158, 163);
+            this.lblDCategoria.Location = new System.Drawing.Point(158, 155);
             this.lblDCategoria.Name = "lblDCategoria";
             this.lblDCategoria.Size = new System.Drawing.Size(74, 17);
             this.lblDCategoria.TabIndex = 9;
@@ -159,7 +159,7 @@
             // 
             this.lblDMarca.AutoSize = true;
             this.lblDMarca.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDMarca.Location = new System.Drawing.Point(158, 209);
+            this.lblDMarca.Location = new System.Drawing.Point(158, 201);
             this.lblDMarca.Name = "lblDMarca";
             this.lblDMarca.Size = new System.Drawing.Size(54, 17);
             this.lblDMarca.TabIndex = 10;
@@ -169,7 +169,7 @@
             // 
             this.lblDPrecio.AutoSize = true;
             this.lblDPrecio.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDPrecio.Location = new System.Drawing.Point(158, 254);
+            this.lblDPrecio.Location = new System.Drawing.Point(158, 246);
             this.lblDPrecio.Name = "lblDPrecio";
             this.lblDPrecio.Size = new System.Drawing.Size(53, 17);
             this.lblDPrecio.TabIndex = 11;
@@ -178,18 +178,18 @@
             // lblDDescripcion
             // 
             this.lblDDescripcion.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDDescripcion.Location = new System.Drawing.Point(158, 300);
+            this.lblDDescripcion.Location = new System.Drawing.Point(158, 358);
             this.lblDDescripcion.Name = "lblDDescripcion";
-            this.lblDDescripcion.Size = new System.Drawing.Size(202, 66);
+            this.lblDDescripcion.Size = new System.Drawing.Size(278, 109);
             this.lblDDescripcion.TabIndex = 12;
             this.lblDDescripcion.Text = "Descripcion...";
             // 
             // lblDImagen
             // 
             this.lblDImagen.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDImagen.Location = new System.Drawing.Point(158, 366);
+            this.lblDImagen.Location = new System.Drawing.Point(158, 292);
             this.lblDImagen.Name = "lblDImagen";
-            this.lblDImagen.Size = new System.Drawing.Size(202, 106);
+            this.lblDImagen.Size = new System.Drawing.Size(202, 48);
             this.lblDImagen.TabIndex = 13;
             this.lblDImagen.Text = "Imagen Ruta...";
             // 

@@ -161,6 +161,7 @@ namespace GestorCatalogo
         
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Si elimina una marca o categoría, los artículos asociados podrían verse afectados y perderse. Si desea recuperar un artículo, diríjase a Artículos Afectados. Debe ingresar el elemento que haya eliminado al artículo, aunque no necesariamente tiene que ser el mismo; eso dependerá de su elección.", "ATENCIÓN", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             DialogResult r;
             if (marca != null)
             {

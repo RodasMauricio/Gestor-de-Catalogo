@@ -153,7 +153,7 @@
             // 
             this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcion.Location = new System.Drawing.Point(151, 197);
-            this.txtDescripcion.MaxLength = 120;
+            this.txtDescripcion.MaxLength = 500;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(205, 23);
             this.txtDescripcion.TabIndex = 2;
