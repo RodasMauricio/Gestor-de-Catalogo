@@ -88,6 +88,7 @@ namespace GestorCatalogo
             }
         }
 
+
         //Evento Botones--
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -225,7 +226,6 @@ namespace GestorCatalogo
         //--Evento Botones
 
 
-
         private void txtBusqueda_TextChanged(object sender, EventArgs e)
         {
             List<Articulo> filtroRapido;
@@ -248,6 +248,10 @@ namespace GestorCatalogo
                 lblXBusqueda.Enabled = false;
             }
 
+        }
+        private void lblXBusqueda_Click(object sender, EventArgs e)
+        {
+            txtBusqueda.Clear();
         }
         private void dgvMain_SelectionChanged(object sender, EventArgs e)
         {
@@ -278,6 +282,17 @@ namespace GestorCatalogo
             catch (Exception)
             {
                 throw;
+            }
+        }
+        private void dgvMain_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvMain.Columns["Precio"].Visible == true)
+            {
+                if (e.Value != null && e.Value is decimal)
+                {
+                    // Formatear el valor de la celda como moneda
+                    e.Value = string.Format("{0:C0}", e.Value);
+                }
             }
         }
 
@@ -367,23 +382,6 @@ namespace GestorCatalogo
                 if (!(Char.IsDigit(e.KeyChar)) && e.KeyChar != 8)
                 {
                     e.Handled = true;
-                }
-            }
-        }
-
-        private void lblXBusqueda_Click(object sender, EventArgs e)
-        {
-            txtBusqueda.Clear();
-        }
-
-        private void dgvMain_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (dgvMain.Columns["Precio"].Visible == true)
-            {
-                if (e.Value != null && e.Value is decimal)
-                {
-                    // Formatear el valor de la celda como moneda
-                    e.Value = string.Format("{0:C0}", e.Value);
                 }
             }
         }
