@@ -51,14 +51,12 @@ namespace GestorCatalogo
             cbFiltrarPor.Items.Add("Categoría");
             cbFiltrarPor.Items.Add("Precio");
         }
-        private Articulo SeleccionArticulo()
+        private void SeleccionArticulo()
         {
             if (dgvMain.CurrentRow != null)
                 articulo = (Articulo)dgvMain.CurrentRow.DataBoundItem;
             else
                 articulo = (Articulo)dgvMain.Rows[0].DataBoundItem;
-
-            return articulo;
         }
         private List<Articulo> FiltroMarcaCategoria(string filtrarPor, string criterio)
         {
