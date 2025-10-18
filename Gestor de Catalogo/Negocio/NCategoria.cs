@@ -60,7 +60,8 @@ namespace Negocio
             {
                 try
                 {
-                    datos.Consulta($"Delete CATEGORIAS Where Id = {categoria.Id}");
+                    datos.Consulta("Delete CATEGORIAS Where Id = @id");
+                    datos.Parametros("@id", categoria.Id);
                     datos.EjecutarComando();
                     MessageBox.Show($"¡Categoría \"{categoria.Descripcion.ToUpper()}\" eliminada!");
                 }

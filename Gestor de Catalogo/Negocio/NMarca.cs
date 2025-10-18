@@ -61,7 +61,8 @@ namespace Negocio
             {
                 try
                 {
-                    datos.Consulta($"Delete MARCAS Where Id = {marca.Id}");
+                    datos.Consulta("Delete MARCAS Where Id = @id");
+                    datos.Parametros("@id", marca.Id);
                     datos.EjecutarComando();
                     MessageBox.Show($"¡Marca \"{marca.Descripcion.ToUpper()}\" eliminada!");
                 }

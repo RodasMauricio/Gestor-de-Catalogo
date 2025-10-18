@@ -62,38 +62,48 @@ namespace Negocio
         
         public List<Articulo> FiltroAvanzado(string filtrarPor, string criterio, string filtro)
         {
+            string consultaFiltro = this.consulta;
             using (AccesoDatos datos = new AccesoDatos())
             {
                 try
                 {
                     List<Articulo> listadoFiltrado = new List<Articulo>();
-                    consulta += " And ";
+                    consultaFiltro += " And ";
                     switch (filtrarPor)
                     {
                         case "Nombre":
                             if (criterio == "Comienza con...")
                             {
-                                consulta += "Nombre Like '" + filtro + "%' ";
+                                consultaFiltro += "Nombre Like @filtro"; ;
+                                datos.Parametros("@filtro", filtro + "%");
                             }
                             else
                             {
                                 if (criterio == "Termina con...")
-                                    consulta += "Nombre Like '%" + filtro + "' ";
+                                {
+                                    consultaFiltro += "Nombre Like @filtro ";
+                                    datos.Parametros("@filtro", "%" + filtro );
+                                }
                                 else
-                                    consulta += "Nombre Like '%" + filtro + "%' ";
+                                {
+                                    consultaFiltro += "Nombre Like @filtro ";
+                                    datos.Parametros("@filtro", "%" + filtro + "%");
+                                }
                             }
                             break;
                         case "Descripción":
-                            consulta += "A.Descripcion Like '%" + filtro + "%' ";
+                            consultaFiltro += "A.Descripcion Like @filtro ";
+                            datos.Parametros("@filtro", "%" + filtro + "%");
                             break;
                         case "Precio":
                             if (criterio == "Mínimo")
-                                consulta += "A.Precio >= " + filtro + " Order By Precio ASC";
+                                consultaFiltro += "A.Precio >= @filtro Order By Precio ASC";
                             else
-                                consulta += "A.Precio <=" + filtro + " Order By Precio DESC";
+                                consultaFiltro += "A.Precio <= @filtro Order By Precio DESC";
+                            datos.Parametros("@filtro", filtro);
                             break;
                     }
-                    datos.Consulta(consulta);
+                    datos.Consulta(consultaFiltro);
                     datos.EjecutarConsulta();
                     while (datos.Lector.Read())
                     {
@@ -182,7 +192,6 @@ namespace Negocio
                 }
             }
         }
-
 
 
         public void Agregar(Articulo a)

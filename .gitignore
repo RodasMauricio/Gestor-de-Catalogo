@@ -416,3 +416,9 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Archivos de Configuración de la Aplicación
+# Ignorar App.config, Web.config, y sus archivos de transformación
+App.config
+Web.config
+*.config.transform
