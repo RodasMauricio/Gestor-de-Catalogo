@@ -10,7 +10,6 @@ namespace Negocio
 {
     public class NMarca
     {
-        private string consulta = "Select M.Id, M.Descripcion From MARCAS M";
         public List<Marca> ListarMarcas()
         {
             using (AccesoDatos datos = new AccesoDatos())
@@ -18,7 +17,7 @@ namespace Negocio
                 List<Marca> listaMarca = new List<Marca>();
                 try
                 {
-                    datos.Consulta(consulta);
+                    datos.Consulta("Select M.Id, M.Descripcion From MARCAS M");
                     datos.EjecutarConsulta();
                     while (datos.Lector.Read())
                     {
